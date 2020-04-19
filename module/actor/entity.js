@@ -3,19 +3,19 @@
  * Extend the base Actor class to implement additional logic specialized for BitD.
  */
 export class ActorBitD extends Actor {
-    
-/**
-   * Augment the basic actor data with additional dynamic data.
-   */
+
+  /**
+     * Augment the basic actor data with additional dynamic data.
+     */
   prepareData() {
     super.prepareData();
 
     // Get the Actor's data object
     const actorData = this.data;
-    
+
     // Prepare character data
-    if ( actorData.type === "character" ) this._prepareCharacterData(actorData);
-    else if ( actorData.type === "npc" ) this._prepareNPCData(actorData);
+    if (actorData.type === "character") this._prepareCharacterData(actorData);
+    else if (actorData.type === "npc") this._prepareNPCData(actorData);
   }
 
   /* -------------------------------------------- */
@@ -24,14 +24,15 @@ export class ActorBitD extends Actor {
   /** @override */
   getRollData() {
     const data = super.getRollData();
-    data.classes = this.data.items.reduce((obj, i) => {
-      if ( i.type === "class" ) {
-        obj[i.name.slugify({strict: true})] = i.data;
+    const shorthand = game.settings.get("worldbuilding", "macroShorthand");
+
+    // Re-map all attributes onto the base roll data
+    if (!!shorthand) {
+      for (let [k, v] of Object.entries(data.attributes)) {
+        if (!(k in data)) data[k] = v.value;
       }
-      return obj;
-    }, {});
-    data.prof = this.data.data.attributes.prof;
-    return data;
+      delete data.attributes;
+    }
   }
 
   /* -------------------------------------------- */
@@ -39,16 +40,16 @@ export class ActorBitD extends Actor {
   /* -------------------------------------------- */
 
   /** @override */
-  static async create(data, options={}) {
+  static async create(data, options = {}) {
     data.token = data.token || {};
-    if ( data.type === "character" ) {
+    if (data.type === "character") {
       mergeObject(data.token, {
         vision: true,
         dimSight: 30,
         brightSight: 0,
         actorLink: true,
         disposition: 1
-      }, {overwrite: false});
+      }, { overwrite: false });
     }
     return super.create(data, options);
   }

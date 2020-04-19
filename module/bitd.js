@@ -7,60 +7,41 @@
  * Issue Tracker: 
  */
 
+/**
+ * A simple and flexible system for world-building using an arbitrary collection of character and item attributes
+ * Author: Atropos
+ * Software License: GNU GPLv3
+ */
+
 // Import Modules
+import { Character } from "./actor/entity.js";
+import { CharacterSheet } from "./actor/sheets/character.js";
 
 /* -------------------------------------------- */
 /*  Foundry VTT Initialization                  */
 /* -------------------------------------------- */
 
-Hooks.once("init", function () {
-    console.log(`BitD | Initializing Blades in the Dark System System\n`);
+Hooks.once("init", async function() {
+  console.log(`Initializing Simple Worldbuilding System`);
 
-    // Create a D&D5E namespace within the game global
-    game.bitd = {
-        ActorBitD,
-    };
+  // Define custom Entity classes
+  CONFIG.Actor.entityClass = Character;
 
-    // Record Configuration Values
-    CONFIG.BITD = BITD;
-    CONFIG.Actor.entityClass = ActorBitD;
+  // Register sheet application classes
+  Actors.unregisterSheet("core", Character);
+  Actors.registerSheet("bitd", CharacterSheet, { makeDefault: true });
 
-    // Register System Settings
-    registerSystemSettings();
-
-    // Patch Core Functions
-    Combat.prototype._getInitiativeFormula = _getInitiativeFormula;
-
-    // Register sheet application classes
-    Actors.unregisterSheet("core", ActorSheet);
-    Actors.registerSheet("bitd", ActorSheetBitDCharacter, { types: ["character"], makeDefault: true });
-    Actors.registerSheet("bitd", ActorSheetBitDNPC, { types: ["npc"], makeDefault: true });
-
-    // Preload Handlebars Templates
-    preloadHandlebarsTemplates();
+  // Register system settings
+  game.settings.register("worldbuilding", "macroShorthand", {
+    name: "Shortened Macro Syntax",
+    hint: "Enable a shortened macro syntax which allows referencing attributes directly, for example @str instead of @attributes.str.value. Disable this setting if you need the ability to reference the full attribute model, for example @attributes.str.label.",
+    scope: "world",
+    type: Boolean,
+    default: true,
+    config: true
+  });
 });
 
-/* -------------------------------------------- */
-/*  Foundry VTT Setup                           */
-/* -------------------------------------------- */
-
-/**
- * This function runs after game data has been requested and loaded from the servers, so entities exist
- */
-Hooks.once("setup", function () {
-
-    // Localize CONFIG objects once up-front
-    // TODO: Adjust localize
-    const toLocalize = [
-        "abilities", "actorSizes", "hertiages", "playbooks", "vices", "position", "effectlevels"
-    ];
-    for (let o of toLocalize) {
-        CONFIG.BITD[o] = Object.entries(CONFIG.BITD[o]).reduce((obj, e) => {
-            obj[e[0]] = game.i18n.localize(e[1]);
-            return obj;
-        }, {});
-    }
-});
 
 /* -------------------------------------------- */
 /*  Canvas Initialization                       */
