@@ -18,7 +18,7 @@
     "gridUnits": "ft",
     "primaryTokenAttribute": "status.stress",
     "secondaryTokenAttribute": null,
-    "url": "https://your/hosted/system/repo/",
-    "url": "https://your/hosted/system/repo/system.json",
+    "url": "https://github.com/kbedell/foundry-bitd",
+    "url": "https://github.com/kbedell/foundry-bitd/edit/master/system.json",
     "download": "https://your/packaged/download/archive.zip"
   }
