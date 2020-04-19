@@ -20,5 +20,5 @@
     "secondaryTokenAttribute": null,
     "url": "https://github.com/kbedell/foundry-bitd",
     "url": "https://github.com/kbedell/foundry-bitd/edit/master/system.json",
-    "download": "https://your/packaged/download/archive.zip"
+    "download": "https://github.com/kbedell/foundry-bitd/releases/download/0.0.1/BitD.zip"
   }
