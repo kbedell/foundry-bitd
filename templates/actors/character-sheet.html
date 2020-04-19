@@ -1,0 +1,102 @@
+<form class="{{cssClass}} flexcol" autocomplete="off">
+    {{!-- Sheet Header  --}}
+    <header class="sheet-header flexrow">
+        <img class="profile" src="{{actor.img}}" title="{{actor.name}}" data-edit="img" />
+
+        <div class="header-details flexrow">
+            <h1 class="charname">
+                <input name="name" type="text" value="{{actor.name}}" placeholder="{{ localize 'BITD.Name' }}" />
+            </h1>
+
+            {{!-- Character Background --}}
+            <ul class="background">
+                <li>
+                    <input type="text" name="data.details.crew" value="{{data.details.crew}}"
+                        placeholder="{{ localize 'BITD.Crew' }}" />
+                </li>
+                <li>
+                    <input type="text" name="data.details.heritage" value="{{data.details.heritage}}"
+                        placeholder="{{ localize 'BITD.Heritage' }}" />
+                </li>
+                <li>
+                    <input type="text" name="data.details.background" value="{{data.details.background}}"
+                        placeholder="{{ localize 'BITD.Background' }}" />
+                </li>
+            </ul>
+
+            {{!-- Character Statuses --}}
+            <ul class="statuses flexrow">
+                <li class="status stress">
+                    <h4 class="status-name box-title">
+                        {{ localize "BITD.Stress" }}
+                    </h4>
+                    <div class="status-value multiple">
+                        <input name="data.status.stress.value" type="text" value="{{data.status.stress.value}}"
+                            data-dtype="Number" placeholder="0" />
+                        <span class="sep"> / </span>
+                        <input name="data.status.stress.max" type="text" value="{{data.status.stress.max}}"
+                            data-dtype="Number" placeholder="8" />
+                    </div>
+                </li>
+
+                <li class="status trauma">
+                    <h4 class="status-name box-title">
+                        {{ localize "BITD.Trauma" }}
+                    </h4>
+                    <div class="status-value multiple">
+                        <input name="data.status.trauma.value" type="text" value="{{data.status.trauma.value}}"
+                            data-dtype="Number" placeholder="0" />
+                        <span class="sep"> / </span>
+                        <input name="data.status.trauma.max" type="text" value="{{data.status.trauma.max}}"
+                            data-dtype="Number" placeholder="4" />
+                    </div>
+                </li>
+
+                <li class="status conditions">
+                    <h4 class="status-name box-title">{{ localize "BITD.Conditions" }}</h4>
+                    {{#each data.conditions as |condition c|}}
+                        <li class="condition flexrow {{#if condition.value}}enabled{{/if}}" data-skill="{{c}}">
+                            <input type="hidden" name="data.conditions.{{c}}.value" value="{{condition.value}}" data-dtype="Number"/>
+                            <a class="enabled-toggle condition-enabled" title="{{condition.hover}}">{{{condition.icon}}}</a>
+                            <h4 class="condition-name">{{condition.label}}</h4>
+                        </li>
+                    {{/each}}
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    {{!-- Sheet Navigation --}}
+    <nav class="sheet-navigation tabs" data-group="primary">
+        <a class="item active" data-tab="actions">{{ localize "BITD.Actions" }}</a>
+        <a class="item" data-tab="special-abilities">{{ localize "BITD.SpecialAbilities" }}</a>
+        <a class="item" data-tab="projects">{{ localize "BITD.Projects" }}</a>
+        <a class="item" data-tab="biography">{{ localize "BITD.Biography" }}</a>
+    </nav>
+
+    {{!-- Sheet Body --}}
+    <section class="sheet-body">
+        <div class="tab actions flexrow" data-group="primary" data-tab="actions">
+            <ul class="actions-list">
+                {{#each data.actions.actions as |family|}}
+                    <li class="action flexrow">
+                        <h4 class="family-name">{{family.label}}</h4>
+                        {{#each family as |action|}}
+                            <h4 class="action-name rollable">{{action.label}}</h4>
+                            {{#each action.value}}
+                                <i class="fas fa-circle"></i>
+                            {{/each}}
+                            {{#each math@action.max "-" action.value }}
+                                <i class="far fa-circle"></i>
+                            {{/each}}
+                        {{/each}}
+                    </li>
+                {{/each}}
+            </ul>
+        </div>
+    </section>
+
+    <section class="center-pane">
+        <h4 class="load-out-label">{{ localize "BITD.LoadOut" }}</h4>
+    </section>
+</form>
