@@ -7,15 +7,12 @@
  * Issue Tracker: 
  */
 
-/**
- * A simple and flexible system for world-building using an arbitrary collection of character and item attributes
- * Author: Atropos
- * Software License: GNU GPLv3
- */
-
 // Import Modules
-import { Character } from "./actor/entity.js";
-import { CharacterSheet } from "./actor/sheets/character.js";
+import { BITD } from "./config.js";
+import { registerSystemSettings } from "./module/settings.js";
+import { measureDistance, getBarAttribute } from "./module/canvas.js";
+import { BitDCharacter } from "./actor/entity.js";
+import { BitDCharacterSheet } from "./actor/sheets/character.js";
 
 /* -------------------------------------------- */
 /*  Foundry VTT Initialization                  */
@@ -25,11 +22,11 @@ Hooks.once("init", async function() {
   console.log(`Initializing Simple Worldbuilding System`);
 
   // Define custom Entity classes
-  CONFIG.Actor.entityClass = Character;
+  CONFIG.Actor.entityClass = BitDCharacter;
 
   // Register sheet application classes
-  Actors.unregisterSheet("core", Character);
-  Actors.registerSheet("bitd", CharacterSheet, { makeDefault: true });
+  Actors.unregisterSheet("core", ActorSheet);
+  Actors.registerSheet("bitd", BitDCharacterSheet, { makeDefault: true });
 
   // Register system settings
   game.settings.register("worldbuilding", "macroShorthand", {
