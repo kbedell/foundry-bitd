@@ -10,7 +10,6 @@
 // Import Modules
 import { BITD } from "./config.js";
 import { registerSystemSettings } from "./module/settings.js";
-import { measureDistance, getBarAttribute } from "./module/canvas.js";
 import { BitDCharacter } from "./actor/entity.js";
 import { BitDCharacterSheet } from "./actor/sheets/character.js";
 
