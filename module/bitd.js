@@ -18,7 +18,7 @@ import { BitDCharacterSheet } from "./actor/sheets/character.js";
 /*  Foundry VTT Initialization                  */
 /* -------------------------------------------- */
 
-Hooks.once("init", function() {
+Hooks.once("init", function () {
   console.log(`BitD | Initializing Blades in the Dark System\n`);
 
   // Create a BitD namespace within the game global
@@ -36,7 +36,7 @@ Hooks.once("init", function() {
 
   // Register sheet application classes
   Actors.unregisterSheet("core", ActorSheet);
-  Actors.registerSheet("dnd5e", ActorSheetBitDCharacter, { types: ["character"], makeDefault: true });
+  Actors.registerSheet("bitd", BitDCharacterSheet, { types: ["character"], makeDefault: true });
   // Actors.registerSheet("bitd", ActorSheetBitDNPC, { types: ["npc"], makeDefault: true });
   // Items.unregisterSheet("core", ItemSheet);
   // Items.registerSheet("bitd", ItemSheetBitD, {makeDefault: true});
@@ -44,18 +44,3 @@ Hooks.once("init", function() {
   // Preload Handlebars Templates
   preloadHandlebarsTemplates();
 });
-
-
-/* -------------------------------------------- */
-/*  Canvas Initialization                       */
-/* -------------------------------------------- */
-
-Hooks.on("canvasInit", function() {
-
-    // Extend Diagonal Measurement
-    canvas.grid.diagonalRule = game.settings.get("bitd", "diagonalMovement");
-    SquareGrid.prototype.measureDistance = measureDistance;
-  
-    // Extend Token Resource Bars
-    Token.prototype.getBarAttribute = getBarAttribute;
-  });

@@ -2,7 +2,7 @@
     "name": "bitd",
     "title": "Blades in the Dark",
     "description": "A game system for running Blades in the Dark.",
-    "version": "0.0.4",
+    "version": "0.0.5",
     "minimumCoreVersion": "0.5.2",
     "compatibleCoreVersion": "0.5.5",  
     "templateVersion": 2,
@@ -19,6 +19,7 @@
     "primaryTokenAttribute": "status.stress",
     "secondaryTokenAttribute": null,
     "url": "https://github.com/kbedell/foundry-bitd",
-    "url": "https://github.com/kbedell/foundry-bitd/edit/master/system.json",
-    "download": "https://github.com/kbedell/foundry-bitd/releases/download/0.0.4/BitD.zip"
+    "manifest": "https://github.com/kbedell/foundry-bitd/edit/master/system.json",
+    "download": "https://github.com/kbedell/foundry-bitd/releases/download/0.0.5/BitD.zip",
+    "license": "LICENSE.txt"
   }

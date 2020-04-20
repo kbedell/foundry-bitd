@@ -1,22 +1,4 @@
 export const registerSystemSettings = function () {
-
-    /**
-     * Register diagonal movement rule setting
-     */
-    game.settings.register("bitd", "diagonalMovement", {
-        name: "SETTINGS.BitDDiagN",
-        hint: "SETTINGS.BitDDiagL",
-        scope: "world",
-        config: true,
-        default: "555",
-        type: String,
-        choices: {
-            "555": "SETTINGS.BitDDiagPHB",
-            "5105": "SETTINGS.BitDDiagDMG"
-        },
-        onChange: rule => canvas.grid.diagonalRule = rule
-    });
-
     /**
      * Option to automatically collapse Item Card descriptions
      */
