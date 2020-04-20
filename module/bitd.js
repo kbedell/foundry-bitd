@@ -18,25 +18,31 @@ import { BitDCharacterSheet } from "./actor/sheets/character.js";
 /*  Foundry VTT Initialization                  */
 /* -------------------------------------------- */
 
-Hooks.once("init", async function() {
-  console.log(`Initializing Simple Worldbuilding System`);
+Hooks.once("init", function() {
+  console.log(`BitD | Initializing Blades in the Dark System\n`);
 
-  // Define custom Entity classes
+  // Create a BitD namespace within the game global
+  game.bitd = {
+    BitDCharacter,
+    rollItemMacro
+  };
+
+  // Record Configuration Values
+  CONFIG.BITD = BITD;
   CONFIG.Actor.entityClass = BitDCharacter;
+
+  // Register System Settings
+  registerSystemSettings();
 
   // Register sheet application classes
   Actors.unregisterSheet("core", ActorSheet);
-  Actors.registerSheet("bitd", BitDCharacterSheet, { makeDefault: true });
+  Actors.registerSheet("dnd5e", ActorSheetBitDCharacter, { types: ["character"], makeDefault: true });
+  // Actors.registerSheet("bitd", ActorSheetBitDNPC, { types: ["npc"], makeDefault: true });
+  // Items.unregisterSheet("core", ItemSheet);
+  // Items.registerSheet("bitd", ItemSheetBitD, {makeDefault: true});
 
-  // Register system settings
-  game.settings.register("worldbuilding", "macroShorthand", {
-    name: "Shortened Macro Syntax",
-    hint: "Enable a shortened macro syntax which allows referencing attributes directly, for example @str instead of @attributes.str.value. Disable this setting if you need the ability to reference the full attribute model, for example @attributes.str.label.",
-    scope: "world",
-    type: Boolean,
-    default: true,
-    config: true
-  });
+  // Preload Handlebars Templates
+  preloadHandlebarsTemplates();
 });
 
 
