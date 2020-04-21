@@ -10,8 +10,8 @@
 // Import Modules
 import { BITD } from "./config.js";
 import { registerSystemSettings } from "./settings.js";
-import { BitDCharacter } from "./actor/entity.js";
-import { BitDCharacterSheet } from "./actor/sheets/character.js";
+import { CharacterBitD } from "./actor/entity.js";
+import { CharacterSheetBitD } from "./actor/sheets/character.js";
 
 /* -------------------------------------------- */
 /*  Foundry VTT Initialization                  */
@@ -22,20 +22,20 @@ Hooks.once("init", function () {
 
   // Create a BitD namespace within the game global
   game.bitd = {
-    BitDCharacter,
+    CharacterBitD,
     rollItemMacro
   };
 
   // Record Configuration Values
   CONFIG.BITD = BITD;
-  CONFIG.Actor.entityClass = BitDCharacter;
+  CONFIG.Actor.entityClass = CharacterBitD;
 
   // Register System Settings
   registerSystemSettings();
 
   // Register sheet application classes
   Actors.unregisterSheet("core", ActorSheet);
-  Actors.registerSheet("bitd", BitDCharacterSheet, { types: ["character"], makeDefault: true });
+  Actors.registerSheet("bitd", CharacterSheetBitD, { types: ["character"], makeDefault: true });
   // Actors.registerSheet("bitd", ActorSheetBitDNPC, { types: ["npc"], makeDefault: true });
   // Items.unregisterSheet("core", ItemSheet);
   // Items.registerSheet("bitd", ItemSheetBitD, {makeDefault: true});

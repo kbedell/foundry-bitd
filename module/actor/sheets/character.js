@@ -5,7 +5,7 @@ import { ActorSheetBitD } from "./base.js";
  * Extends the base ActorSheet5e class.
  * @type {ActorSheetBitD}
  */
-export class ActorSheetBitDcharacter extends ActorSheetBitD {
+export class CharacterSheetBitD extends ActorSheetBitD {
 
   /**
    * Define default rendering options for the NPC sheet
