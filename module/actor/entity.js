@@ -2,7 +2,7 @@
 /**
  * Extend the base Actor class to implement additional logic specialized for BitD.
  */
-export class ActorBitD extends Actor {
+export class CharacterBitD extends Actor {
 
   /**
      * Augment the basic actor data with additional dynamic data.
