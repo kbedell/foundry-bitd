@@ -1,3 +1,5 @@
+import {BITD} from '../../config.js';
+
 /**
  * Extend the basic ActorSheet class to do all the BitD things!
  * This sheet is an Abstract layer which is not used.
@@ -18,6 +20,48 @@ export class ActorSheetBitD extends ActorSheet {
       biography: new Set()
     };
   }
+
+  /* -------------------------------------------- */
+
+  /** @override */
+  static get defaultOptions() {
+    return mergeObject(super.defaultOptions, {
+      scrollY: [
+        ".specialabilities .abilities-list",
+        ".projects .abilities-list",
+        ".biography .abilities-list"
+      ],
+      tabs: [{navSelector: ".tabs", contentSelector: ".sheet-body", initial: "description"}]
+    });
+  }
+
+
+  /* -------------------------------------------- */
+
+  /** @override */
+  getData() {
+
+    // Basic data
+    let isOwner = this.entity.owner;
+    const data = {
+      owner: isOwner,
+      limited: this.entity.limited,
+      options: this.options,
+      editable: this.isEditable,
+      cssClass: isOwner ? "editable" : "locked",
+      isCharacter: this.entity.data.type === "character",
+      isNPC: this.entity.data.type === "npc",
+      config: CONFIG.BITD,
+    };
+
+    // The Actor and its Items
+    data.actor = duplicate(this.actor.data);
+
+    // Return data to the sheet
+    return data
+  }
+
+  /* -------------------------------------------- */
 
   /* -------------------------------------------- */
 

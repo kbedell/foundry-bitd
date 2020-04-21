@@ -26,12 +26,12 @@ export class ActorBitD extends Actor {
     const data = super.getRollData();
     const shorthand = game.settings.get("worldbuilding", "macroShorthand");
 
-    // Re-map all attributes onto the base roll data
+    // Re-map all actions onto the base roll data
     if (!!shorthand) {
-      for (let [k, v] of Object.entries(data.attributes)) {
+      for (let [k, v] of Object.entries(data.actions)) {
         if (!(k in data)) data[k] = v.value;
       }
-      delete data.attributes;
+      delete data.actions;
     }
   }
 
