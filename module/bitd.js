@@ -22,8 +22,7 @@ Hooks.once("init", function () {
 
   // Create a BitD namespace within the game global
   game.bitd = {
-    CharacterBitD,
-    rollItemMacro
+    CharacterBitD
   };
 
   // Record Configuration Values
