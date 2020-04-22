@@ -1,48 +1,412 @@
 /* ----------------------------------------- */
+
 /*  Sheet Styles                             */
+
 /* ----------------------------------------- */
+
+.bitd.sheet {
+  color: #4b4a44;
+}
+
 /* ----------------------------------------- */
+
 /*  Flexbox                                  */
+
 /* ----------------------------------------- */
+
 .flexrow {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-  }
-  .flexrow > * {
-    flex: 1;
-  }
-  .flexrow .flex1 {
-    flex: 1;
-  }
-  .flexrow .flex2 {
-    flex: 2;
-  }
-  .flexrow .flex3 {
-    flex: 3;
-  }
-  .flexrow .flex4 {
-    flex: 4;
-  }
-  .flexcol {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-  }
-  .flexcol > * {
-    flex: 1;
-  }
-  .flexcol .flex1 {
-    flex: 1;
-  }
-  .flexcol .flex2 {
-    flex: 2;
-  }
-  .flexcol .flex3 {
-    flex: 3;
-  }
-  .flexcol .flex4 {
-    flex: 4;
-  }
-  
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.flexrow>* {
+  flex: 1;
+}
+
+.flexrow .flex1 {
+  flex: 1;
+}
+
+.flexrow .flex2 {
+  flex: 2;
+}
+
+.flexrow .flex3 {
+  flex: 3;
+}
+
+.flexrow .flex4 {
+  flex: 4;
+}
+
+.flexcol {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+
+.flexcol>* {
+  flex: 1;
+}
+
+.flexcol .flex1 {
+  flex: 1;
+}
+
+.flexcol .flex2 {
+  flex: 2;
+}
+
+.flexcol .flex3 {
+  flex: 3;
+}
+
+.flexcol .flex4 {
+  flex: 4;
+}
+
+/* ----------------------------------------- */
+
+/*  Element Styles                           */
+
+/* ----------------------------------------- */
+
+.bitd.sheet input[type="text"] {
+  background: none;
+  border: 1px solid transparent;
+}
+
+.bitd.sheet input[type="text"]:hover, .bitd.sheet input[type="text"]:focus {
+  border: 1px solid #111;
+}
+
+.bitd.sheet input[type="text"] {
+  font-size: 15px;
+}
+
+/* ----------------------------------------- */
+
+/*  All BitD Apps                            */
+
+/* ----------------------------------------- */
+
+.bitd .form-group label {
+  flex: 2;
+  font-weight: bold;
+}
+.bitd .form-group .form-fields {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+.bitd .form-group .form-fields > * {
+  flex: 1;
+}
+.bitd .form-group .form-fields .flex1 {
+  flex: 1;
+}
+.bitd .form-group .form-fields .flex2 {
+  flex: 2;
+}
+.bitd .form-group .form-fields .flex3 {
+  flex: 3;
+}
+.bitd .form-group .form-fields .flex4 {
+  flex: 4;
+}
+.bitd .form-group .form-fields > * {
+  margin: 0 3px 0 0;
+}
+.bitd .form-group .form-fields > *:last-child {
+  margin-right: 0;
+}
+.bitd .form-group.stacked label {
+  flex: 0 0 100%;
+  margin: 0;
+}
+.bitd .form-group.stacked label.checkbox {
+  flex: auto;
+  text-align: left;
+}
+.bitd .form-header {
+  margin: 0 0 0.25em 0;
+  padding: 0 2px;
+  font-family: "Nodesto", "Signika", "Palatino Linotype", serif;
+  font-size: 20px;
+  font-size: 24px;
+  border-top: 2px groove #eeede0;
+  border-bottom: 2px groove #eeede0;
+}
+.bitd .tag {
+  display: inline-block;
+  margin: 0 2px 0 0;
+  padding: 0 3px;
+  font-size: 10px;
+  line-height: 16px;
+  border: 1px solid #999;
+  border-radius: 3px;
+  background: rgba(0, 0, 0, 0.05);
+}
+
+/* ----------------------------------------- */
+
+/*  Entity Sheets                            */
+
+/* ----------------------------------------- */
+
+.bitd.sheet .sheet-header img {
+  margin: 0px;
+}
+
+.bitd.sheet img.profile {
+  flex: 0 0 150px;
+  max-width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border: none;
+  border-right: 2px groove #eeede0;
+}
+
+.bitd.sheet .sheet-body {
+  flex: 1;
+  overflow: hidden;
+}
+
+.bitd.sheet .sheet-navigation {
+  flex: 0 0 30px;
+  margin-bottom: 5px;
+  font-family: "Nodesto", "Signika", "Palatino Linotype", serif;
+  font-size: 20px;
+}
+
+.bitd.sheet .sheet-navigation .item {
+  font-size: 15px;
+  border-bottom: 3px solid #b5b3a4;
+}
+
+.bitd.sheet .sheet-navigation .item.active {
+  font-size: 15px;
+  border-bottom: 3px solid #44191A;
+}
+
+.bitd.sheet .sheet-header {
+  flex: 0 0 100px;
+  border-bottom: 2px groove #eeede0;
+  font-size: 15px;
+  /* Character Name */
+  /* Background */
+  /* Status */
+}
+
+.bitd.sheet .sheet-header h1 input {
+  font-size: 25px;
+  height: 25px;
+  line-height: 25px;
+  width: 96%;
+}
+
+.bitd.sheet .background {
+  flex: 0 0 100%;
+  height: 40px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 2px groove #eeede0;
+  border-bottom: 2px groove #eeede0;
+}
+
+.bitd.sheet .sheet-header .background li {
+  width: 33.33%;
+  float: left;
+  height: 34px;
+  margin: 2px 0;
+  padding: 0 3px;
+  border-right: 2px groove #eeede0;
+  line-height: 34px;
+  color: #4b4a44;
+}
+
+.bitd.sheet .sheet-header .background li:last-child {
+  border-right: none;
+}
+
+.bitd.sheet.actor h4.box-title {
+  line-height: 16px;
+  margin: 13px 8px 2px;
+  font-size: 15px;
+  border-bottom: 1px solid #b5b3a4;
+  text-align: center;
+}
+
+.bitd.sheet.actor ul.statuses {
+  list-style: none;
+  margin: 0px;
+  padding: 0;
+}
+
+.bitd.sheet.actor ul.statuses li.status {
+  height: 70px;
+  margin: 0 5px;
+  border-radius: 4px;
+  font-size: 15px;
+  text-align: center;
+}
+
+.bitd.sheet.actor ul.statuses li.status .status-name {
+  flex: 0 0 18px;
+}
+
+.bitd.sheet.actor ul.statuses li.status .status-value {
+  height: 28px;
+  line-height: 28px;
+}
+
+.bitd.sheet.actor ul.statuses li.status .status-value input {
+  display: inline;
+  max-width: 40%;
+  margin: 0;
+  font-size: 15px;
+  height: 28px;
+}
+
+.bitd.sheet.actor ul.statuses li.status .status-value span.sep {
+  display: inline;
+  position: relative;
+  top: 2px;
+  font-size: 15px;
+  color: #7a7971;
+}
+
+.bitd.sheet.actor ul.statuses li.status .status-value.multiple input {
+  max-width: 33%;
+}
+
+.bitd.sheet.actor ul.statuses li.status.stress {
+  flex-grow: 1;
+  border-right: 2px groove #eeede0;
+}
+
+.bitd.sheet.actor ul.statuses li.status.trauma {
+  flex-grow: 1;
+  border-right: 2px groove #eeede0;
+}
+
+.bitd.sheet.actor ul.statuses li.vices {
+  flex-grow: 2;
+}
+
+.bitd.sheet.actor ul.statuses li.vices.vice {
+  border-right: 2px groove #eeede0;
+}
+
+.bitd.sheet.actor ul.statuses li.vices input {
+  text-align: center;
+}
+
+.bitd.sheet.actor ul.statuses li.status.conditions {
+  flex-grow: 3;
+}
+
+.bitd.sheet.actor .condition-checkbox {
+  display: none;
+}
+
+.bitd.sheet.actor .condition {
+  flex: 1 0 10%;
+  margin: 5px;
+}
+
+.bitd.sheet.actor .condition .condition-name {
+  margin: 0px;
+}
+
+.bitd.sheet.actor ul.attributes-list {
+  flex: 0 0 192px;
+  list-style: none;
+  margin: 5px 5px 0;
+  padding: 2px 2px 0;
+  border-radius: 3px;
+}
+
+.bitd.sheet.actor .attribute {
+  border: 2px groove #eeede0;
+  margin-bottom: 5px;
+}
+
+.bitd.sheet.actor .attribute-header {
+  flex: 1 0 100%;
+  border-bottom: 2px groove #eeede0;
+  height: 30px;
+}
+
+.bitd.sheet.actor .attribute-header input {
+  margin: 5px;
+  text-align: right;
+  font-size: 15px;
+}
+
+.bitd.sheet.actor .attribute-name {
+  font-size: 15px;
+  margin: 5px;
+  font-weight: bold;
+}
+
+.bitd.sheet.actor .attribute-inputs input {
+  display: inline;
+  max-width: 20%;
+  margin: 0;
+  font-size: 15px;
+  height: 28px;
+}
+
+.bitd.sheet.actor ul.actions-list {
+  list-style: none;
+  padding-left: 0px;
+}
+
+.bitd.sheet.actor .sheet-navigation .item {
+  margin-top: 5px;
+}
+
+.bitd.sheet.actor .action-score h4.action-name.box-title {
+  border: 0px;
+  text-align: left;
+}
+
+.bitd.sheet.actor .action-score {
+  border-bottom: 2px groove #eeede0;
+}
+
+.bitd.sheet.actor ul.actions-list li:last-child {
+  border-bottom: 0px;
+}
+
+.bitd.sheet.actor .action-inputs input {
+  display: inline;
+  max-width: 20%;
+  margin: 0;
+  font-size: 15px;
+  height: 28px;
+}
+
+.bitd.sheet.actor .action-inputs.sep {
+  display: inline;
+}
+
+/* ----------------------------------------- */
+
+/*  Character                                */
+
+/* ----------------------------------------- */
+
+.bitd.sheet.actor .form-group.conditons {
+  border-bottom: 2px groove #eeede0;
+}
+
+.bitd.sheet.actor .form-group .condition-selector {
+  text-align: right;
+  margin-right: 10px;
+}

@@ -10,16 +10,50 @@ export class CharacterBitD extends Actor {
   prepareData() {
     super.prepareData();
 
-    // Get the Actor's data object
     const actorData = this.data;
 
-    // Prepare character data
+    // Prepare Character data
     if (actorData.type === "character") this._prepareCharacterData(actorData);
     else if (actorData.type === "npc") this._prepareNPCData(actorData);
   }
 
   /* -------------------------------------------- */
 
+  prepare() {
+    let preparedData = duplicate(this.data);
+
+    for ( let [c, cond] of Object.entries(preparedData.data.conditions)) { 
+      cond.label = CONFIG.BITD.conditions[c];
+    }
+
+    for ( let [a, att] of Object.entries(preparedData.data.attributes)) {
+      att.label = CONFIG.BITD.attributes[a];
+
+      for (let [ac, act] of Object.entries(att.actions)) {
+        act.label = CONFIG.BITD.actions[ac];
+      }
+    }
+
+    console.log(preparedData);
+    
+    return preparedData;
+  }
+
+  /**
+ * Prepare Character type specific data
+ */
+  _prepareCharacterData(actorData) {
+  }
+
+  /* -------------------------------------------- */
+
+  /**
+ * Prepare NPC type specific data
+ */
+  _prepareNPCData(actorData) {
+  }
+
+  /* -------------------------------------------- */
 
   /** @override */
   getRollData() {
@@ -53,6 +87,4 @@ export class CharacterBitD extends Actor {
     }
     return super.create(data, options);
   }
-
-  /* -------------------------------------------- */
 }

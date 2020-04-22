@@ -5,116 +5,120 @@
             "npc"
         ],
         "templates": {
-            "actions": {
-                "resolve": {
-                    "order": 2,
-                    "xp": 0,
-                    "max-xp": 6,
-                    "actions": {
-                        "attune": {
-                            "value": 0,
-                            "max": 4
-                        },
-                        "command": {
-                            "value": 0,
-                            "max": 4
-                        },
-                        "consort": {
-                            "value": 0,
-                            "max": 4
-                        },
-                        "sway": {
-                            "value": 0,
-                            "max": 4
+            "attributes": {
+                "attributes": {
+                    "insight": {
+                        "xp": 0,
+                        "max-xp": 6,
+                        "actions": {
+                            "hunt": {
+                                "value": 0,
+                                "max": 4
+                            },
+                            "study": {
+                                "value": 0,
+                                "max": 4
+                            },
+                            "survey": {
+                                "value": 0,
+                                "max": 4
+                            },
+                            "tinker": {
+                                "value": 0,
+                                "max": 4
+                            }
                         }
-                    }
-                },
-                "prowess": {
-                    "order": 1,
-                    "xp": 0,
-                    "max-xp": 6,
-                    "actions": {
-                        "finesse": {
-                            "value": 0,
-                            "max": 4
-                        },
-                        "prowl": {
-                            "value": 0,
-                            "max": 4
-                        },
-                        "skirmish": {
-                            "value": 0,
-                            "max": 4
-                        },
-                        "wreck": {
-                            "value": 0,
-                            "max": 4
+                    },
+                    "prowess": {
+                        "xp": 0,
+                        "max-xp": 6,
+                        "actions": {
+                            "finesse": {
+                                "value": 0,
+                                "max": 4
+                            },
+                            "prowl": {
+                                "value": 0,
+                                "max": 4
+                            },
+                            "skirmish": {
+                                "value": 0,
+                                "max": 4
+                            },
+                            "wreck": {
+                                "value": 0,
+                                "max": 4
+                            }
                         }
-                    }
-                },
-                "insight": {
-                    "order": 0,
-                    "xp": 0,
-                    "max-xp": 6,
-                    "actions": {
-                        "hunt": {
-                            "value": 0,
-                            "max": 4
-                        },
-                        "study": {
-                            "value": 0,
-                            "max": 4
-                        },
-                        "survey": {
-                            "value": 0,
-                            "max": 4
-                        },
-                        "tinker": {
-                            "value": 0,
-                            "max": 4
+                    },
+                    "resolve": {
+                        "xp": 0,
+                        "max-xp": 6,
+                        "actions": {
+                            "attune": {
+                                "value": 0,
+                                "max": 4
+                            },
+                            "command": {
+                                "value": 0,
+                                "max": 4
+                            },
+                            "consort": {
+                                "value": 0,
+                                "max": 4
+                            },
+                            "sway": {
+                                "value": 0,
+                                "max": 4
+                            }
                         }
                     }
                 }
             },
             "details": {
-                "alias": "",
-                "description": "",
-                "heritage": "",
-                "background": "",
-                "vice": "",
-                "vice-purveyor": ""
+                "details": {
+                    "alias": "",
+                    "description": "",
+                    "heritage": "",
+                    "background": "",
+                    "vice": "",
+                    "vice-purveyor": ""
+                }
             },
             "conditions": {
-                "cold": {
-                    "value": 0
-                },
-                "haunted": {
-                    "value": 0
-                },
-                "obsessed": {
-                    "value": 0
-                },
-                "paranoid": {
-                    "value": 0
-                },
-                "reckless": {
-                    "value": 0
-                },
-                "soft": {
-                    "value": 0
-                },
-                "unstable": {
-                    "value": 0
-                },
-                "vicious": {
-                    "value": 0
+                "conditions": {
+                    "cold": {
+                        "value": false
+                    },
+                    "haunted": {
+                        "value": false
+                    },
+                    "obsessed": {
+                        "value": false
+                    },
+                    "paranoid": {
+                        "value": false
+                    },
+                    "reckless": {
+                        "value": false
+                    },
+                    "soft": {
+                        "value": false
+                    },
+                    "unstable": {
+                        "value": false
+                    },
+                    "vicious": {
+                        "value": false
+                    }
                 }
             }
         },
         "character": {
             "templates": [
-                "actions",
-                "details"
+                "attributes",
+                "details",
+                "conditions"
             ],
             "status": {
                 "stress": {
@@ -125,7 +129,6 @@
                     "value": 0,
                     "max": 4
                 },
-                "conditions": [],
                 "harm": {
                     "level-3": "",
                     "level-2": [],
@@ -167,16 +170,41 @@
             "faction": ""
         }
     },
-    "Playbook": {
-        "description": "",
-        "abilities": [],
-        "equipment": [],
-        "experience": {
-            "value": 0,
-            "max": 8
-        }
-    },
     "Item": {
-        "load": 0
+        "types": [
+            "equipment",
+            "playbook",
+            "ability"
+        ],
+        "templates": {
+            "itemDescription": {
+                "description": {
+                    "value": "",
+                    "chat": ""
+                }
+            },
+            "ability": {
+                "description": "",
+                "actionType": "",
+                "bonus": 0
+            }
+        },
+        "playbook": {
+            "templates": [
+                "itemDescription"
+            ],
+            "abilities": [],
+            "items": []
+        },
+        "item": {
+            "templates": [
+                "itemDescription"
+            ]
+        },
+        "ability": {
+            "templates": [
+                "ability"
+            ]
+        }
     }
 }

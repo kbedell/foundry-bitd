@@ -3,34 +3,34 @@ export const BITD = {};
 
 
 /**
- * The set of Ability Scores used within the system
+ * The set of Action Scores used within the system
  * @type {Object}
  */
-BITD.abilities = {
-    "attune": "BITD.AbilityAttune",
-    "command": "BITD.AbilityCommand",
-    "consort": "BITD.AbilityConsort",
-    "finesse": "BITD.AbilityFinesse",
-    "hunt": "BITD.AbilityHunt",
-    "prowl": "BITD.AbilityProwl",
-    "skirmish": "BITD.AbilitySkirmish",
-    "study": "BITD.AbilityStudy",
-    "survey": "BITD.AbilitySurvey",
-    "sway": "BITD.AbilitySway",
-    "tinker": "BITD.AbilityTinker",
-    "wreck": "BITD.AbilityWreck"
+BITD.actions = {
+    "attune": "BITD.ActionAttune",
+    "command": "BITD.ActionCommand",
+    "consort": "BITD.ActionConsort",
+    "finesse": "BITD.ActionFinesse",
+    "hunt": "BITD.ActionHunt",
+    "prowl": "BITD.ActionProwl",
+    "skirmish": "BITD.ActionSkirmish",
+    "study": "BITD.ActionStudy",
+    "survey": "BITD.ActionSurvey",
+    "sway": "BITD.ActionSway",
+    "tinker": "BITD.ActionTinker",
+    "wreck": "BITD.ActionWreck"
   };
 
 /* -------------------------------------------- */
 
 // Creature Sizes
 BITD.actorSizes = {
-  "tiny": "DND5E.SizeTiny",
-  "sm": "DND5E.SizeSmall",
-  "med": "DND5E.SizeMedium",
-  "lg": "DND5E.SizeLarge",
-  "huge": "DND5E.SizeHuge",
-  "grg": "DND5E.SizeGargantuan"
+  "tiny": "BITD.SizeTiny",
+  "sm": "BITD.SizeSmall",
+  "med": "BITD.SizeMedium",
+  "lg": "BITD.SizeLarge",
+  "huge": "BITD.SizeHuge",
+  "grg": "BITD.SizeGargantuan"
 };
 
 BITD.tokenSizes = {
@@ -77,6 +77,29 @@ BITD.vices = {
     "pleasure": "BITD.VicePleasure",
     "stupor": "BITD.ViceStupor",
     "weird": "BITD.ViceWeird"
+}
+
+/* -------------------------------------------- */
+
+// conditions
+BITD.conditions = {
+  "cold": "BITD.ConditionCold",
+  "haunted": "BITD.ConditionHaunted",
+  "obsessed": "BITD.ConditionObsessed",
+  "paranoid": "BITD.ConditionParanoid",
+  "reckless": "BITD.ConditionReckless",
+  "soft": "BITD.ConditionSoft",
+  "unstable": "BITD.ConditionUnstable",
+  "vicious": "BITD.ConditionVicious"
+}
+
+/* -------------------------------------------- */
+
+// attrributes
+BITD.attributes = {
+  "insight": "BITD.AttributeInsight",
+  "prowess": "BITD.AttributeProwess",
+  "resolve": "BITD.AttributeResolve"
 }
 
 /* -------------------------------------------- */

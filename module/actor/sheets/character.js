@@ -14,8 +14,8 @@ export class CharacterSheetBitD extends ActorSheetBitD {
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
       classes: ["bitd", "sheet", "actor", "character"],
-      width: 672,
-      height: 736
+      width: 680,
+      height: 790
     });
   }
 
@@ -30,8 +30,6 @@ export class CharacterSheetBitD extends ActorSheetBitD {
   get template() {
     return "systems/bitd/templates/actors/character-sheet.html";
   }
-
-  /* -------------------------------------------- */
 
   /* -------------------------------------------- */
   /*  Event Listeners and Handlers

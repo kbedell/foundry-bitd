@@ -1,4 +1,4 @@
-import {BITD} from '../../config.js';
+import { ConditionSelector } from "../../apps/condition-selector.js";
 
 /**
  * Extend the basic ActorSheet class to do all the BitD things!
@@ -31,7 +31,7 @@ export class ActorSheetBitD extends ActorSheet {
         ".projects .abilities-list",
         ".biography .abilities-list"
       ],
-      tabs: [{navSelector: ".tabs", contentSelector: ".sheet-body", initial: "description"}]
+      tabs: [{ navSelector: ".tabs", contentSelector: ".sheet-body", initial: "description" }]
     });
   }
 
@@ -41,36 +41,93 @@ export class ActorSheetBitD extends ActorSheet {
   /** @override */
   getData() {
 
+    const sheetData = super.getData();
+
     // Basic data
     let isOwner = this.entity.owner;
-    const data = {
-      owner: isOwner,
-      limited: this.entity.limited,
-      options: this.options,
-      editable: this.isEditable,
-      cssClass: isOwner ? "editable" : "locked",
-      isCharacter: this.entity.data.type === "character",
-      isNPC: this.entity.data.type === "npc",
-      config: CONFIG.BITD,
-    };
+
+    sheetData.owner = isOwner;
+    sheetData.limited = this.entity.limited;
+    sheetData.options = this.options;
+    sheetData.editable = this.isEditable;
+    sheetData.cssClass = isOwner ? "editable" : "locked";
+    sheetData.isCharacter = this.entity.data.type === "character";
+    sheetData.isNPC = this.entity.data.type === "npc";
+    sheetData.config = CONFIG.BITD;
 
     // The Actor and its Items
-    data.actor = duplicate(this.actor.data);
+    mergeObject(sheetData.actor, this.actor.prepare());
 
     // Return data to the sheet
-    return data
+    return sheetData;
+  }
+
+  /* -------------------------------------------- */
+  /*  Event Listeners and Handlers
+  /* -------------------------------------------- */
+
+  /**
+   * Activate event listeners using the prepared sheet HTML
+   * @param html {HTML}   The prepared HTML object ready to be rendered into the DOM
+   */
+  activateListeners(html) {
+
+    // Editable Only Listeners
+    if (this.isEditable) {
+
+      // Relative updates for numeric fields
+      html.find('input[data-dtype="Number"]').change(this._onChangeInputDelta.bind(this));
+
+      // Trait Selector
+      html.find('.condition-selector').click(this._onConditionSelector.bind(this));
+    }
+
+    // Handle default listeners last so system listeners are triggered first
+    super.activateListeners(html);
   }
 
   /* -------------------------------------------- */
 
-  /* -------------------------------------------- */
-
   /** @override */
-  setPosition(options={}) {
+  setPosition(options = {}) {
     const position = super.setPosition(options);
     const sheetBody = this.element.find(".sheet-body");
     const bodyHeight = position.height - 192;
     sheetBody.css("height", bodyHeight);
     return position;
+  }
+
+  /* -------------------------------------------- */
+  /*  Event Listeners and Handlers                */
+  /* -------------------------------------------- */
+
+  /**
+   * Handle input changes to numeric form fields, allowing them to accept delta-typed inputs
+   * @param event
+   * @private
+   */
+  _onChangeInputDelta(event) {
+    const input = event.target;
+    const value = input.value;
+    if (["+", "-"].includes(value[0])) {
+      let delta = parseFloat(value);
+      input.value = getProperty(this.actor.data, input.name) + delta;
+    } else if (value[0] === "=") {
+      input.value = value.slice(1);
+    }
+
+    this.actor.update({ [input.name]: value });
+  }
+
+  _onConditionSelector(event) {
+    event.preventDefault();
+    const a = event.currentTarget;
+    const label = a.parentElement.querySelector("label");
+    const options = {
+      name: label.getAttribute("for"),
+      title: label.innerText,
+      choices: CONFIG.BITD[a.dataset.options]
+    };
+    new ConditionSelector(this.actor, options).render(true)
   }
 }

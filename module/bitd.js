@@ -10,6 +10,7 @@
 // Import Modules
 import { BITD } from "./config.js";
 import { registerSystemSettings } from "./settings.js";
+import { preloadHandlebarsTemplates } from "./templates.js";
 import { CharacterBitD } from "./actor/entity.js";
 import { CharacterSheetBitD } from "./actor/sheets/character.js";
 
