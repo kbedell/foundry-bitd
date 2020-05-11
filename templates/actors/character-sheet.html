@@ -1,135 +1,134 @@
 <form class="{{cssClass}} flexcol" autocomplete="off">
-    {{!-- Sheet Header  --}}
-    <header class="sheet-header flexrow">
-        <img class="profile" src="{{actor.img}}" title="{{actor.name}}" data-edit="img" />
+  {{!-- Sheet Header --}}
+  <header class="sheet-header flexrow">
+    <img
+      class="profile"
+      src="{{actor.img}}"
+      title="{{actor.name}}"
+      data-edit="img"
+    />
 
-        <div class="header-details flexrow">
-            <h1 class="charname">
-                <input name="name" type="text" value="{{actor.name}}" placeholder="{{ localize 'BITD.Name' }}" />
-            </h1>
+    <div class="header-details flexrow">
+      <h1 class="charname">
+        <input
+          name="name"
+          type="text"
+          value="{{actor.name}}"
+          placeholder="{{ localize 'BITD.Name' }}"
+        />
+      </h1>
 
-            {{!-- Character Background --}}
-            <ul class="background">
-                <li>
-                    <input class="crew" type="text" name="data.details.crew" value="{{data.details.crew}}"
-                        placeholder="{{ localize 'BITD.Crew' }}" />
-                </li>
-                <li>
-                    <input class="heritage" type="text" name="data.details.heritage" value="{{data.details.heritage}}"
-                        placeholder="{{ localize 'BITD.Heritage' }}" />
-                </li>
-                <li>
-                    <input class="race" type="text" name="data.details.background" value="{{data.details.background}}"
-                        placeholder="{{ localize 'BITD.Background' }}" />
-                </li>
-            </ul>
+      <h1 class="playbook-select">
+        <input
+          class="playbook-selector"
+          type="text"
+          name="data.items.playbook"
+          value="{{data.items.playbook}}"
+          placeholder="{{ localize 'BITD.Playbook' }}"
+        />
+      </h1>
 
-            {{!-- Character Statuses --}}
-            <ul class="statuses flexrow">
-                <li class="status stress">
-                    <h4 class="status-name box-title">
-                        {{ localize "BITD.Stress" }}
-                    </h4>
-                    <div class="status-value multiple">
-                        <input name="data.status.stress.value" type="text" value="{{data.status.stress.value}}"
-                            data-dtype="Number" placeholder="0" />
-                        <span class="sep"> / </span>
-                        <input name="data.status.stress.max" type="text" value="{{data.status.stress.max}}"
-                            data-dtype="Number" placeholder="8" />
-                    </div>
-                </li>
+      {{!-- Character Background --}}
+      <ul class="background">
+        <li>
+          <input
+            class="crew"
+            type="text"
+            name="data.details.crew"
+            value="{{data.details.crew}}"
+            placeholder="{{ localize 'BITD.Crew' }}"
+          />
+        </li>
+        <li>
+          <input
+            class="heritage"
+            type="text"
+            name="data.details.heritage"
+            value="{{data.details.heritage}}"
+            placeholder="{{ localize 'BITD.Heritage' }}"
+          />
+        </li>
+        <li>
+          <input
+            class="race"
+            type="text"
+            name="data.details.background"
+            value="{{data.details.background}}"
+            placeholder="{{ localize 'BITD.Background' }}"
+          />
+        </li>
+      </ul>
+    </div>
 
-                <li class="status trauma">
-                    <h4 class="status-name box-title">
-                        {{ localize "BITD.Trauma" }}
-                    </h4>
-                    <div class="status-value multiple">
-                        <input name="data.status.trauma.value" type="text" value="{{data.status.trauma.value}}"
-                            data-dtype="Number" placeholder="0" />
-                        <span class="sep"> / </span>
-                        <input name="data.status.trauma.max" type="text" value="{{data.status.trauma.max}}"
-                            data-dtype="Number" placeholder="4" />
-                    </div>
-                </li>
+    {{!-- Status - Stress --}} {{>
+    "systems/bitd/templates/actors/parts/stress.html"}}
+  </header>
 
-                <li class="vices vice">
-                    <h4 class="status-name box-title">
-                        {{ localize "BITD.Vice" }}
-                    </h4>
-                    <input class="vice-input" type="text" name="data.details.vice" value="{{data.details.vice}}"
-                        placeholder="{{ localize 'BITD.Vice' }}" />
-                </li>
+  {{!-- Sheet Navigation --}}
+  <nav class="sheet-navigation tabs" data-group="primary">
+    <a class="item active" data-tab="score"
+      ><i class="fas fa-mask"></i> {{ localize "BITD.Score" }}</a
+    >
+    <a class="item" data-tab="downtime">
+      <i class="fas fa-clock"></i> {{ localize "BITD.Downtime" }}
+    </a>
+  </nav>
 
-                <li class="vices vice-purveyor">
-                    <h4 class="status-name box-title">
-                        {{ localize "BITD.VicePurveyor" }}
-                    </h4>
-                    <input class="vice-purveyor-input" type="text" name="data.details.vice-purveyor"
-                        value="{{data.details.vice-purveyor}}" placeholder="{{ localize 'BITD.Vice' }}" />
-                </li>
-            </ul>
-        </div>
-    </header>
-
-    {{!-- Sheet Navigation --}}
-    <nav class="sheet-navigation tabs" data-group="primary">
-        <a class="item active" data-tab="actions">{{ localize "BITD.Actions" }}</a>
-        <a class="item" data-tab="special-abilities">{{ localize "BITD.SpecialAbilities" }}</a>
-        <a class="item" data-tab="projects">{{ localize "BITD.Projects" }}</a>
-        <a class="item" data-tab="biography">{{ localize "BITD.Biography" }}</a>
-    </nav>
-
-    {{!-- Sheet Body --}}
-    <section class="sheet-body">
-        <div class="tab attributes flexrow" data-group="primary" data-tab="actions">
-
-            {{!-- Actions --}}
-            <ul class="attributes-list">
-                {{#each data.attributes as |at att|}}
-                <li class="attribute flexrow">
-                    <div class="attribute-header flexrow">
-                        <h4 class="attribute-name group-title">{{ localize at.label}}</h4>
-                        <div class="attribute-inputs">
-                            <input name="data.attributes.{{att}}.xp" type="text" value="{{at.xp}}" data-dtype="Number"
-                                placeholder="0" />
-                            <span class="sep"> / </span>
-                            <input name="data.attributes.{{att}}.max-xp" type="text" value="{{at.max-xp}}"
-                                data-dtype="Number" placeholder="6" />
-                        </div>
-                    </div>
-                    <ul class="actions-list">
-                        {{#each at.actions as |ac act|}}
-                        <li class="action-score flexrow">
-                            <h4 class="action-name box-title">{{ localize ac.label}}</h4>
-                            <div class="action-inputs">
-                                <input name="data.attributes.{{att}}.{{act}}.value" type="text" value="{{ac.value}}"
-                                    data-dtype="Number" placeholder="0" />
-                                <span class="sep"> / </span>
-                                <input name="data.attributes.{{att}}.{{act}}.max" type="text" value="{{ac.max}}"
-                                    data-dtype="Number" placeholder="4" />
-                            </div>
-                        </li>
-                        {{/each}}
-                    </ul>
+  {{!-- Sheet Body --}}
+  <section class="sheet-body">
+    <div class="tab attributes flexrow" data-group="primary" data-tab="score">
+      {{!-- Actions --}}
+      <ul class="attributes-list">
+        {{#each data.attributes as |at att|}}
+        <li class="attribute flexrow">
+          <div class="attribute-header flexrow">
+            <h4 class="attribute-name group-title">{{ localize at.label}}</h4>
+            <div class="attribute-inputs">
+              <ul class="attribute pips flexrow">
+                {{#each at.levels}}
+                <li class="attribute pip">
+                  <input class="pip-value {{att}}-value-{{@index}}"
+                  id="{{att}}-value-{{@index}}" name="{{att}}-value-{{@index}}"
+                  type="checkbox" value="{{@index}}" data-dtype="Number" {{#if
+                  this}}checked{{/if}} />
+                  <label
+                    class="pip-toggle {{att}}-pip-{{@index}}"
+                    for="{{att}}-value-{{@index}}"
+                  ></label>
                 </li>
                 {{/each}}
-            </ul>
+              </ul>
+            </div>
+          </div>
+          <ul class="actions-list">
+            {{#each at.actions as |ac act|}}
+            <li class="action-score flexrow">
+              <ul class="action pips flexrow">
+                {{#each ac.levels}}
+                <li class="action pip">
+                  <input class="pip-value {{act}}-value-{{@index}}"
+                  id="{{act}}-value-{{@index}}" name="{{act}}-value-{{@index}}"
+                  type="checkbox" value="{{@index}}" data-dtype="Number" {{#if
+                  this}}checked{{/if}} />
+                  <label
+                    class="pip-toggle {{act}}-pip-{{@index}}"
+                    for="{{act}}-value-{{@index}}"
+                  ></label>
+                </li>
+                {{/each}}
+              </ul>
+              <h4 class="action-name box-title">{{ localize ac.label}}</h4>
+            </li>
+            {{/each}}
+          </ul>
+        </li>
+        {{/each}}
+      </ul>
 
-            <section class="center-pane">
-                <div class="form-group conditions">
-                    <label for="data.conditions">{{localize "BITD.Conditions"}}</label>
-                    <ul class="conditions-list">
-                        {{#each data.conditions as |c cond|}}
-                        {{#if c.value}}
-                        <li class="tag {{cond}}">{{cond}}</li>
-                        {{/if}}
-                        {{/each}}
-                    </ul>
-                    <a class="condition-selector" data-options="condition-selector"><i class="fas fa-edit"></i></a>
-                </div>
-                {{!-- Load Out --}}
-                <h4 class="load-out-label">{{ localize "BITD.LoadOut" }}</h4>
-            </section>
-        </div>
-    </section>
+      <section class="center-pane">
+        {{!-- Load Out --}}
+        <h4 class="load-out-label">{{ localize "BITD.LoadOut" }}</h4>
+      </section>
+    </div>
+  </section>
 </form>

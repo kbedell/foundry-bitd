@@ -1,0 +1,416 @@
+@import url("https://fonts.googleapis.com/css?family=Lato:200,300,400,400i,700");
+@import url("https://fonts.googleapis.com/css?family=Merriweather:200,400,400i,700");
+/* ----------------------------------------- */
+/*  Flexbox                                  */
+/* ----------------------------------------- */
+.flexrow {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+.flexrow .flex1 {
+  flex: 1;
+}
+.flexrow .flex2 {
+  flex: 2;
+}
+.flexrow .flex3 {
+  flex: 3;
+}
+.flexrow .flex4 {
+  flex: 4;
+}
+
+.flexrow > * {
+  flex: 1;
+}
+
+.flexcol {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+.flexcol .flex1 {
+  flex: 1;
+}
+.flexcol .flex2 {
+  flex: 2;
+}
+.flexcol .flex3 {
+  flex: 3;
+}
+.flexcol .flex4 {
+  flex: 4;
+}
+
+.flexcol > * {
+  flex: 1;
+}
+
+/* ----------------------------------------- */
+/*  Colors                                   */
+/* ----------------------------------------- */
+/* ----------------------------------------- */
+/*  Entity Sheets                            */
+/* ----------------------------------------- */
+.bitd.sheet .window-header {
+  border-bottom: 1px solid #fff;
+  color: #fff;
+}
+.bitd.sheet .window-content {
+  background-color: #E1E0D4;
+  color: #12130f;
+  font-family: "Lato", "sans-serif";
+}
+.bitd.sheet ul {
+  list-style: none;
+}
+.bitd.sheet .tag {
+  display: inline-block;
+  margin: 0 2px 0 0;
+  padding: 0 3px;
+  font-size: 10px;
+  line-height: 16px;
+  border: 1px solid #999;
+  border-radius: 3px;
+  background: rgba(0, 0, 0, 0.05);
+}
+
+/* ----------------------------------------- */
+/*  Navigation Styles                        */
+/* ----------------------------------------- */
+.bitd.sheet .sheet-navigation {
+  flex: 0 0 30px;
+  margin-bottom: 5px;
+  font-size: 20px;
+}
+.bitd.sheet .sheet-navigation .item {
+  font-size: 15px;
+  border-bottom: 3px solid #fff;
+}
+.bitd.sheet .sheet-navigation .item.active {
+  font-size: 15px;
+  border-bottom: 3px solid #770C17;
+}
+.bitd.sheet .tabs .item.active {
+  color: #770C17;
+  text-shadow: none;
+}
+.bitd.sheet .tabs a.item:hover {
+  text-shadow: none;
+  color: #770C17;
+  border-bottom: 3px solid #770C17;
+}
+
+/* ----------------------------------------- */
+/*  Input Styles                             */
+/* ----------------------------------------- */
+.bitd input:disabled,
+.bitd select:disabled,
+.bitd textarea:disabled {
+  color: #12130f;
+}
+.bitd input:disabled:hover,
+.bitd select:disabled:hover,
+.bitd textarea:disabled:hover,
+.bitd input:disabled:focus,
+.bitd select:disabled:focus,
+.bitd textarea:disabled:focus {
+  box-shadow: none !important;
+  border: 1px solid transparent !important;
+  outline: none !important;
+}
+.bitd .sheet input[type=text] {
+  color: #12130f;
+  background: none;
+  border: 1px solid transparent;
+  border-bottom: 1px dashed #12130f;
+  border-radius: 0px;
+}
+.bitd .sheet input::placeholder {
+  color: #7d7d7d;
+  font-style: italic;
+}
+.bitd .sheet input[type=text]:hover,
+.bitd .sheet input[type=text]:focus {
+  border: 1px solid #12130f;
+}
+.bitd .sheet input[type=text] {
+  font-size: 15px;
+}
+
+/* ----------------------------------------- */
+/*  Character Sheets                         */
+/* ----------------------------------------- */
+.bitd.sheet.actor img.profile {
+  flex: 0 0 110px;
+  max-width: 110px;
+  height: 110px;
+  object-fit: cover;
+  border: 2px solid transparent;
+}
+.bitd.sheet.actor img.profile img.profile:hover {
+  border: 2px solid #363636;
+}
+
+/* ----------------------------------------- */
+/*  Pips                                     */
+/* ----------------------------------------- */
+.bitd.sheet ul {
+  list-style: none;
+  padding-left: 0px;
+  margin: 0px;
+}
+.bitd.sheet input[type=checkbox] {
+  opacity: 0;
+  height: 0px;
+  margin: 0px;
+  display: none;
+}
+.bitd.sheet label.pip-toggle {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 1px;
+  margin-top: 5px;
+}
+.bitd.sheet label.pip-toggle::before,
+.bitd.sheet label.pip-toggle::after {
+  content: "";
+  /*Needed for the line-height to take effect*/
+  display: inline-block;
+}
+.bitd.sheet label.pip-toggle::before {
+  height: 12px;
+  width: 12px;
+  border: 2px solid #fff;
+  left: 0px;
+  top: 3px;
+  background: #fff;
+  border-radius: 12px;
+}
+.bitd.sheet label.pip-toggle:hover::before {
+  border: 2px solid #000;
+  background-color: #fff;
+  border-radius: 12px;
+}
+.bitd.sheet input[type=checkbox]:checked + label.pip-toggle::before {
+  background: #770C17;
+  border: 2px solid #770C17;
+}
+.bitd.sheet input[type=checkbox]:checked:hover + label.pip-toggle::before {
+  background: #770C17;
+  border: 2px solid #000;
+}
+.bitd.sheet label.pip-toggle.stress-pip-0,
+.bitd.sheet label.pip-toggle.trauma-pip-0,
+.bitd.sheet label.pip-toggle.insight-pip-0,
+.bitd.sheet label.pip-toggle.resolve-pip-0,
+.bitd.sheet label.pip-toggle.prowess-pip-0,
+.bitd.sheet label.pip-toggle.hunt-pip-0,
+.bitd.sheet label.pip-toggle.study-pip-0,
+.bitd.sheet label.pip-toggle.survey-pip-0,
+.bitd.sheet label.pip-toggle.tinker-pip-0,
+.bitd.sheet label.pip-toggle.finesse-pip-0,
+.bitd.sheet label.pip-toggle.prowl-pip-0,
+.bitd.sheet label.pip-toggle.skirmish-pip-0,
+.bitd.sheet label.pip-toggle.wreck-pip-0,
+.bitd.sheet label.pip-toggle.attune-pip-0,
+.bitd.sheet label.pip-toggle.command-pip-0,
+.bitd.sheet label.pip-toggle.consort-pip-0,
+.bitd.sheet label.pip-toggle.sway-pip-0 {
+  margin-top: 0px;
+}
+.bitd.sheet label.pip-toggle.stress-pip-0::before,
+.bitd.sheet label.pip-toggle.trauma-pip-0::before,
+.bitd.sheet label.pip-toggle.insight-pip-0::before,
+.bitd.sheet label.pip-toggle.resolve-pip-0::before,
+.bitd.sheet label.pip-toggle.prowess-pip-0::before,
+.bitd.sheet label.pip-toggle.hunt-pip-0::before,
+.bitd.sheet label.pip-toggle.study-pip-0::before,
+.bitd.sheet label.pip-toggle.survey-pip-0::before,
+.bitd.sheet label.pip-toggle.tinker-pip-0::before,
+.bitd.sheet label.pip-toggle.finesse-pip-0::before,
+.bitd.sheet label.pip-toggle.prowl-pip-0::before,
+.bitd.sheet label.pip-toggle.skirmish-pip-0::before,
+.bitd.sheet label.pip-toggle.wreck-pip-0::before,
+.bitd.sheet label.pip-toggle.attune-pip-0::before,
+.bitd.sheet label.pip-toggle.command-pip-0::before,
+.bitd.sheet label.pip-toggle.consort-pip-0::before,
+.bitd.sheet label.pip-toggle.sway-pip-0::before {
+  content: "X";
+  font-size: 15px;
+  font-weight: 700;
+  border: 2px solid #12130f;
+  text-align: center;
+  line-height: 12px;
+  background: none;
+  transform: none;
+  margin-top: 5px;
+}
+.bitd.sheet label.pip-toggle.stress-pip-0:hover::before,
+.bitd.sheet label.pip-toggle.trauma-pip-0:hover::before,
+.bitd.sheet label.pip-toggle.insight-pip-0:hover::before,
+.bitd.sheet label.pip-toggle.resolve-pip-0:hover::before,
+.bitd.sheet label.pip-toggle.prowess-pip-0:hover::before,
+.bitd.sheet label.pip-toggle.hunt-pip-0:hover::before,
+.bitd.sheet label.pip-toggle.study-pip-0:hover::before,
+.bitd.sheet label.pip-toggle.survey-pip-0:hover::before,
+.bitd.sheet label.pip-toggle.tinker-pip-0:hover::before,
+.bitd.sheet label.pip-toggle.finesse-pip-0:hover::before,
+.bitd.sheet label.pip-toggle.prowl-pip-0:hover::before,
+.bitd.sheet label.pip-toggle.skirmish-pip-0:hover::before,
+.bitd.sheet label.pip-toggle.wreck-pip-0:hover::before,
+.bitd.sheet label.pip-toggle.attune-pip-0:hover::before,
+.bitd.sheet label.pip-toggle.command-pip-0:hover::before,
+.bitd.sheet label.pip-toggle.consort-pip-0:hover::before,
+.bitd.sheet label.pip-toggle.sway-pip-0:hover::before {
+  content: "X";
+  color: #770C17;
+  border: 2px solid #770C17;
+}
+.bitd.sheet label.pip-toggle.hide {
+  display: none;
+}
+.bitd.sheet label.pip-toggle.show {
+  display: inline-block;
+}
+
+/* ----------------------------------------- */
+/*  Header Styles                            */
+/* ----------------------------------------- */
+.bitd.sheet {
+  /* ----------------------------------------- */
+  /*  Attributes & Actions                     */
+  /* ----------------------------------------- */
+}
+.bitd.sheet .sheet-header {
+  flex: 0 0 100px;
+  font-size: 15px;
+  /* ----------------------------------------- */
+  /*  Stress & Trauma                          */
+  /* ----------------------------------------- */
+}
+.bitd.sheet .sheet-header h1 {
+  flex: 1 0 30%;
+  border-bottom: none;
+  height: 60px;
+  margin: 0;
+  padding: 5px;
+}
+.bitd.sheet .sheet-header h1 input {
+  font-family: "Lora", "serif";
+  height: 50px;
+  font-size: 32px;
+  margin: 5px 2% 8px 0px;
+  outline: 0;
+  letter-spacing: 5px;
+  background: none;
+  border-bottom: 1px dashed #12130f;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+.bitd.sheet .sheet-header .background {
+  flex: 0 0 100%;
+  height: 40px;
+  margin: 10px 0px 0px 0px;
+  padding: 0;
+  list-style: none;
+  border-bottom: none;
+}
+.bitd.sheet .sheet-header .background li {
+  width: 33.33%;
+  float: left;
+  height: 34px;
+  margin: 2px 0;
+  padding: 0 3px;
+  line-height: 34px;
+}
+.bitd.sheet .sheet-header .background li input[type=text] {
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 1px dashed #12130f;
+  background: none;
+}
+.bitd.sheet .sheet-header .background li:last-child {
+  border-right: none;
+}
+.bitd.sheet .sheet-header .statuses {
+  flex: 1 0 100%;
+  margin-top: 5px;
+}
+.bitd.sheet .sheet-header .statuses-list {
+  align-items: center;
+  padding-left: 0.5em;
+}
+.bitd.sheet .sheet-header li.status.stress {
+  flex: 0 0 245px;
+}
+.bitd.sheet .sheet-header li.status.trauma {
+  flex: 0 0 160px;
+}
+.bitd.sheet .sheet-header .status-name {
+  flex: 0 0 20px;
+  margin-right: 10px;
+}
+.bitd.sheet .sheet-header .stress li.pip,
+.bitd.sheet .sheet-header .trauma li.pip {
+  flex: 0 0 20px;
+}
+.bitd.sheet .sheet-header .status-value {
+  align-items: center;
+}
+.bitd.sheet .sheet-header .status-value .status-name.box-title {
+  border-bottom: 1px dashed #12130f;
+}
+.bitd.sheet .attributes {
+  flex: 0 0 275px;
+}
+.bitd.sheet .attributes ul.attributes-list {
+  flex: 0 0 275px;
+}
+.bitd.sheet .attributes ul.attributes-list .attribute .attribute-header {
+  background: #363636;
+  color: #E1E0D4;
+  align-items: center;
+  line-height: 10px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 5px;
+  flex: 0 0 100%;
+}
+.bitd.sheet .attributes ul.attributes-list .attribute .attribute-name.group-title {
+  margin: 0px 0px 1px 10px;
+}
+.bitd.sheet .attributes ul.attributes-list .attribute ul.attribute {
+  margin: 0px 5px 0px 0px;
+  justify-content: flex-end;
+}
+.bitd.sheet .attributes ul.attributes-list .attribute ul.attribute .pip-toggle {
+  margin-top: 2px;
+}
+.bitd.sheet .attributes ul.attributes-list .attribute ul.attribute label.pip-toggle.insight-pip-0::before,
+.bitd.sheet .attributes ul.attributes-list .attribute ul.attribute label.pip-toggle.resolve-pip-0::before,
+.bitd.sheet .attributes ul.attributes-list .attribute ul.attribute label.pip-toggle.prowess-pip-0::before {
+  line-height: 10px;
+  border: 2px solid #E1E0D4;
+  margin-top: 0px;
+}
+.bitd.sheet .attributes ul.attributes-list .attribute ul.attribute label.pip-toggle.insight-pip-0:hover::before,
+.bitd.sheet .attributes ul.attributes-list .attribute ul.attribute label.pip-toggle.resolve-pip-0:hover::before,
+.bitd.sheet .attributes ul.attributes-list .attribute ul.attribute label.pip-toggle.prowess-pip-0:hover::before {
+  border: 2px solid #770C17;
+}
+.bitd.sheet .attributes ul.attributes-list .attribute ul.actions-list {
+  flex: 0 0 100%;
+  margin-top: 5px;
+}
+
+/* ----------------------------------------- */
+/*  Blades in the Dark Styles                */
+/* ----------------------------------------- */
+
+/*# sourceMappingURL=styles.css.map */

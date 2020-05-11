@@ -1,210 +1,179 @@
 {
-    "Actor": {
-        "types": [
-            "character",
-            "npc"
-        ],
-        "templates": {
-            "attributes": {
-                "attributes": {
-                    "insight": {
-                        "xp": 0,
-                        "max-xp": 6,
-                        "actions": {
-                            "hunt": {
-                                "value": 0,
-                                "max": 4
-                            },
-                            "study": {
-                                "value": 0,
-                                "max": 4
-                            },
-                            "survey": {
-                                "value": 0,
-                                "max": 4
-                            },
-                            "tinker": {
-                                "value": 0,
-                                "max": 4
-                            }
-                        }
-                    },
-                    "prowess": {
-                        "xp": 0,
-                        "max-xp": 6,
-                        "actions": {
-                            "finesse": {
-                                "value": 0,
-                                "max": 4
-                            },
-                            "prowl": {
-                                "value": 0,
-                                "max": 4
-                            },
-                            "skirmish": {
-                                "value": 0,
-                                "max": 4
-                            },
-                            "wreck": {
-                                "value": 0,
-                                "max": 4
-                            }
-                        }
-                    },
-                    "resolve": {
-                        "xp": 0,
-                        "max-xp": 6,
-                        "actions": {
-                            "attune": {
-                                "value": 0,
-                                "max": 4
-                            },
-                            "command": {
-                                "value": 0,
-                                "max": 4
-                            },
-                            "consort": {
-                                "value": 0,
-                                "max": 4
-                            },
-                            "sway": {
-                                "value": 0,
-                                "max": 4
-                            }
-                        }
-                    }
-                }
-            },
-            "details": {
-                "details": {
-                    "alias": "",
-                    "description": "",
-                    "heritage": "",
-                    "background": "",
-                    "vice": "",
-                    "vice-purveyor": ""
-                }
-            },
-            "conditions": {
-                "conditions": {
-                    "cold": {
-                        "value": false
-                    },
-                    "haunted": {
-                        "value": false
-                    },
-                    "obsessed": {
-                        "value": false
-                    },
-                    "paranoid": {
-                        "value": false
-                    },
-                    "reckless": {
-                        "value": false
-                    },
-                    "soft": {
-                        "value": false
-                    },
-                    "unstable": {
-                        "value": false
-                    },
-                    "vicious": {
-                        "value": false
-                    }
-                }
-            }
-        },
-        "character": {
-            "templates": [
-                "attributes",
-                "details",
-                "conditions"
-            ],
-            "status": {
-                "stress": {
-                    "value": 0,
-                    "max": 9
-                },
-                "trauma": {
-                    "value": 0,
-                    "max": 4
-                },
-                "harm": {
-                    "level-3": "",
-                    "level-2": [],
-                    "level-1": []
-                },
-                "healing": {
-                    "value": 0,
-                    "max": 4
-                }
-            },
-            "armor": {
-                "armor": false,
-                "heavy": false,
-                "special": false
-            },
-            "load": 3,
-            "relationships": {
-                "rival": "",
-                "ally": ""
-            },
-            "coin": {
+  "Actor": {
+    "types": ["character", "npc"],
+    "templates": {
+      "attributes": {
+        "attributes": {
+          "insight": {
+            "value": 0,
+            "max": 6,
+            "actions": {
+              "hunt": {
                 "value": 0,
-                "min": 0,
                 "max": 4
-            },
-            "stash": {
+              },
+              "study": {
                 "value": 0,
-                "min": 0,
-                "max": 40
-            },
-            "speed": {
-                "value": "60 ft"
+                "max": 4
+              },
+              "survey": {
+                "value": 0,
+                "max": 4
+              },
+              "tinker": {
+                "value": 0,
+                "max": 4
+              }
             }
-        },
-        "npc": {
-            "templates": [
-                "details"
-            ],
-            "faction": ""
+          },
+          "prowess": {
+            "value": 0,
+            "max": 6,
+            "actions": {
+              "finesse": {
+                "value": 0,
+                "max": 4
+              },
+              "prowl": {
+                "value": 0,
+                "max": 4
+              },
+              "skirmish": {
+                "value": 0,
+                "max": 4
+              },
+              "wreck": {
+                "value": 0,
+                "max": 4
+              }
+            }
+          },
+          "resolve": {
+            "value": 0,
+            "max": 6,
+            "actions": {
+              "attune": {
+                "value": 0,
+                "max": 4
+              },
+              "command": {
+                "value": 0,
+                "max": 4
+              },
+              "consort": {
+                "value": 0,
+                "max": 4
+              },
+              "sway": {
+                "value": 0,
+                "max": 4
+              }
+            }
+          }
         }
+      },
+      "details": {
+        "details": {
+          "description": "",
+          "heritage": "",
+          "background": "",
+          "vice": "",
+          "vice-purveyor": ""
+        }
+      },
+      "status": {
+        "status": {
+          "stress": {
+            "value": 0,
+            "max": 9
+          },
+          "trauma": {
+            "value": 0,
+            "max": 4
+          },
+          "harm": {
+            "level-3": {
+              "value": [],
+              "max": 1
+            },
+            "level-2": {
+              "value": [],
+              "max": 2
+            },
+            "level-1": {
+              "value": [],
+              "max": 2
+            }
+          },
+          "healing": {
+            "value": 0,
+            "max": 4
+          }
+        }
+      }
     },
-    "Item": {
-        "types": [
-            "equipment",
-            "playbook",
-            "ability"
-        ],
-        "templates": {
-            "itemDescription": {
-                "description": {
-                    "value": "",
-                    "chat": ""
-                }
-            },
-            "ability": {
-                "description": "",
-                "actionType": "",
-                "bonus": 0
-            }
-        },
-        "playbook": {
-            "templates": [
-                "itemDescription"
-            ],
-            "abilities": [],
-            "items": []
-        },
-        "item": {
-            "templates": [
-                "itemDescription"
-            ]
-        },
-        "ability": {
-            "templates": [
-                "ability"
-            ]
-        }
+    "character": {
+      "templates": ["attributes", "details", "status"],
+      "details": {
+        "playbook": "",
+        "crew": ""
+      },
+      "conditions": [],
+      "armor": {
+        "armor": false,
+        "heavy": false,
+        "special": false
+      },
+      "coin": {
+        "value": 0,
+        "min": 0,
+        "max": 4
+      },
+      "stash": {
+        "value": 0,
+        "min": 0,
+        "max": 40
+      },
+      "speed": {
+        "value": "60 ft"
+      },
+      "clocks": []
+    },
+    "npc": {
+      "templates": ["details"],
+      "faction": ""
     }
+  },
+  "Item": {
+    "types": ["equipment", "playbook", "ability", "clock"],
+    "templates": {
+      "itemDescription": {
+        "description": {
+          "value": "",
+          "chat": ""
+        }
+      },
+      "ability": {
+        "description": "",
+        "actionType": "",
+        "bonus": 0
+      }
+    },
+    "playbook": {
+      "templates": ["itemDescription"],
+      "abilities": [],
+      "items": []
+    },
+    "item": {
+      "templates": ["itemDescription"]
+    },
+    "ability": {
+      "templates": ["ability"]
+    },
+    "clock": {
+      "description": "",
+      "min": 0,
+      "max": 0
+    }
+  }
 }

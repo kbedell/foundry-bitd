@@ -1,0 +1,71 @@
+{{!-- Character Statuses --}}
+<div class="statuses">
+  <ul class="statuses-list flexrow">
+    <li class="status stress">
+      <div class="status-value flexrow">
+        <div class="status-name box-title">
+          {{ localize "BITD.Stress" }}
+        </div>
+        <ul class="stress pips flexrow">
+          {{#each data.status.stress.levels }} {{#if @first}}
+          <li class="stress pip">
+            <input class="pip-value stress-value-{{@index}}"
+            id="stress-value-{{@index}}" name="stress-value-{{@index}}"
+            type="checkbox" value="{{@index}}" data-dtype="Number" {{#if
+            this}}checked{{/if}} />
+            <label
+              class="pip-toggle stress-pip-{{@index}} {{#if data.status.stress.clear}}show{{else}}hide{{/if}}"
+              for="stress-value-{{@index}}"
+            ></label>
+          </li>
+          {{else}}
+          <li class="stress pip">
+            <input class="pip-value stress-value-{{@index}}"
+            id="stress-value-{{@index}}" name="stress-value-{{@index}}"
+            type="checkbox" value="{{@index}}" data-dtype="Number" {{#if
+            this}}checked{{/if}} />
+            <label
+              class="pip-toggle stress-pip-{{@index}}"
+              for="stress-value-{{@index}}"
+            ></label>
+          </li>
+          {{/if}} {{/each}}
+        </ul>
+      </div>
+    </li>
+    <li class="status trauma">
+      <div class="status-value flexrow">
+        <div class="status-name box-title">
+          {{ localize "BITD.Trauma" }}
+        </div>
+        <ul class="trauma pips flexrow">
+          {{#each data.status.trauma.levels}}
+          <li class="trauma pip">
+            <input class="pip-value trauma-value-{{@index}}"
+            id="trauma-value-{{@index}}" name="trauma-value-{{@index}}"
+            type="checkbox" value="{{@index}}" data-dtype="Number" {{#if
+            this}}checked{{/if}} />
+            <label
+              class="pip-toggle trauma-pip-{{@index}}"
+              for="trauma-value-{{@index}}"
+            ></label>
+          </li>
+          {{/each}}
+        </ul>
+      </div>
+    </li>
+    <li>
+      <div class="form-group conditions">
+        <label for="data.conditions">{{localize "BITD.Conditions"}}</label>
+        <ul class="conditions-list">
+            {{#each data.conditions as |c cond|}}
+            {{#if c.value}}
+            <li class="tag {{cond}}">{{localize cond}}</li>
+            {{/if}}
+            {{/each}}
+        </ul>
+        <a class="condition-selector" data-options="conditions"><i class="fas fa-edit"></i></a>
+    </div>
+    </li>
+  </ul>
+</div>

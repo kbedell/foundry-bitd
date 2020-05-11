@@ -1,0 +1,318 @@
+@use 'colors' as *;
+
+// _character-sheet.scss
+
+/* ----------------------------------------- */
+/*  Character Sheets                         */
+/* ----------------------------------------- */
+
+.bitd.sheet.actor {
+  img.profile {
+    flex: 0 0 110px;
+    max-width: 110px;
+    height: 110px;
+    object-fit: cover;
+    border: 2px solid transparent;
+
+    img.profile:hover {
+      border: 2px solid $grey;
+    }
+  }
+}
+
+/* ----------------------------------------- */
+/*  Pips                                     */
+/* ----------------------------------------- */
+
+.bitd.sheet {
+  ul {
+    list-style: none;
+    padding-left: 0px;
+    margin: 0px;
+  }
+
+  input[type="checkbox"] {
+    opacity: 0;
+    height: 0px;
+    margin: 0px;
+    display: none;
+  }
+
+  label.pip-toggle {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 1px;
+    margin-top: 5px;
+  }
+
+  label.pip-toggle::before,
+  label.pip-toggle::after {
+    content: "";
+
+    /*Needed for the line-height to take effect*/
+    display: inline-block;
+  }
+
+  label.pip-toggle::before {
+    height: 12px;
+    width: 12px;
+    border: 2px solid $pip;
+    left: 0px;
+    top: 3px;
+    background: $pip;
+    border-radius: 12px;
+  }
+
+  label.pip-toggle:hover::before {
+    border: 2px solid $black;
+    background-color: $pip;
+    border-radius: 12px;
+  }
+
+  input[type="checkbox"]:checked + label.pip-toggle::before {
+    background: $pip-checked;
+    border: 2px solid $pip-checked;
+  }
+
+  input[type="checkbox"]:checked:hover + label.pip-toggle::before {
+    background: $pip-checked;
+    border: 2px solid $black;
+  }
+
+  label.pip-toggle.stress-pip-0,
+  label.pip-toggle.trauma-pip-0,
+  label.pip-toggle.insight-pip-0,
+  label.pip-toggle.resolve-pip-0,
+  label.pip-toggle.prowess-pip-0,
+  label.pip-toggle.hunt-pip-0,
+  label.pip-toggle.study-pip-0,
+  label.pip-toggle.survey-pip-0,
+  label.pip-toggle.tinker-pip-0,
+  label.pip-toggle.finesse-pip-0,
+  label.pip-toggle.prowl-pip-0,
+  label.pip-toggle.skirmish-pip-0,
+  label.pip-toggle.wreck-pip-0,
+  label.pip-toggle.attune-pip-0,
+  label.pip-toggle.command-pip-0,
+  label.pip-toggle.consort-pip-0,
+  label.pip-toggle.sway-pip-0 {
+    margin-top: 0px;
+  }
+
+  label.pip-toggle.stress-pip-0::before,
+  label.pip-toggle.trauma-pip-0::before,
+  label.pip-toggle.insight-pip-0::before,
+  label.pip-toggle.resolve-pip-0::before,
+  label.pip-toggle.prowess-pip-0::before,
+  label.pip-toggle.hunt-pip-0::before,
+  label.pip-toggle.study-pip-0::before,
+  label.pip-toggle.survey-pip-0::before,
+  label.pip-toggle.tinker-pip-0::before,
+  label.pip-toggle.finesse-pip-0::before,
+  label.pip-toggle.prowl-pip-0::before,
+  label.pip-toggle.skirmish-pip-0::before,
+  label.pip-toggle.wreck-pip-0::before,
+  label.pip-toggle.attune-pip-0::before,
+  label.pip-toggle.command-pip-0::before,
+  label.pip-toggle.consort-pip-0::before,
+  label.pip-toggle.sway-pip-0::before {
+    content: "X";
+    font-size: 15px;
+    font-weight: 700;
+    border: 2px solid $text;
+    text-align: center;
+    line-height: 12px;
+    background: none;
+    transform: none;
+    margin-top: 5px;
+  }
+
+  label.pip-toggle.stress-pip-0:hover::before,
+  label.pip-toggle.trauma-pip-0:hover::before,
+  label.pip-toggle.insight-pip-0:hover::before,
+  label.pip-toggle.resolve-pip-0:hover::before,
+  label.pip-toggle.prowess-pip-0:hover::before,
+  label.pip-toggle.hunt-pip-0:hover::before,
+  label.pip-toggle.study-pip-0:hover::before,
+  label.pip-toggle.survey-pip-0:hover::before,
+  label.pip-toggle.tinker-pip-0:hover::before,
+  label.pip-toggle.finesse-pip-0:hover::before,
+  label.pip-toggle.prowl-pip-0:hover::before,
+  label.pip-toggle.skirmish-pip-0:hover::before,
+  label.pip-toggle.wreck-pip-0:hover::before,
+  label.pip-toggle.attune-pip-0:hover::before,
+  label.pip-toggle.command-pip-0:hover::before,
+  label.pip-toggle.consort-pip-0:hover::before,
+  label.pip-toggle.sway-pip-0:hover::before {
+    content: "X";
+    color: $pip-checked;
+    border: 2px solid $pip-checked;
+  }
+
+  label.pip-toggle.hide {
+    display: none;
+  }
+
+  label.pip-toggle.show {
+    display: inline-block;
+  }
+}
+
+/* ----------------------------------------- */
+/*  Header Styles                            */
+/* ----------------------------------------- */
+
+.bitd.sheet {
+  .sheet-header {
+    flex: 0 0 100px;
+    font-size: 15px;
+
+    h1 {
+      flex: 1 0 30%;
+      border-bottom: none;
+      height: 60px;
+      margin: 0;
+      padding: 5px;
+
+      input {
+        font-family: "Lora", "serif";
+        height: 50px;
+        font-size: 32px;
+        margin: 5px 2% 8px 0px;
+        outline: 0;
+        letter-spacing: 5px;
+        background: none;
+        border-bottom: 1px dashed $text;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+      }
+    }
+
+    .background {
+      flex: 0 0 100%;
+      height: 40px;
+      margin: 10px 0px 0px 0px;
+      padding: 0;
+      list-style: none;
+      border-bottom: none;
+    }
+
+    .background li {
+      width: 33.33%;
+      float: left;
+      height: 34px;
+      margin: 2px 0;
+      padding: 0 3px;
+      line-height: 34px;
+      input[type="text"] {
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        border-bottom: 1px dashed $text;
+        background: none;
+      }
+    }
+
+    .background li:last-child {
+      border-right: none;
+    }
+
+    .statuses {
+      flex: 1 0 100%;
+      margin-top: 5px;
+    }
+
+    .statuses-list {
+      align-items: center;
+      padding-left: 0.5em;
+    }
+
+    li.status.stress {
+      flex: 0 0 255px;
+    }
+
+    li.status.trauma {
+      flex: 0 0 160px;
+    }
+
+    .status-name {
+      flex: 0 0 20px;
+      margin-right: 10px;
+    }
+
+    .stress li.pip,
+    .trauma li.pip {
+      flex: 0 0 20px;
+    }
+
+    /* ----------------------------------------- */
+    /*  Stress & Trauma                          */
+    /* ----------------------------------------- */
+
+    .status-value {
+      align-items: center;
+
+      .status-name.box-title {
+        border-bottom: 1px dashed $text;
+      }
+    }
+  }
+
+  /* ----------------------------------------- */
+  /*  Attributes & Actions                     */
+  /* ----------------------------------------- */
+  .attributes {
+    flex: 0 0 275px;
+
+    ul.attributes-list {
+      flex: 0 0 275px;
+
+      .attribute {
+        .attribute-header {
+          background: $banner;
+          color: $banner-text;
+          align-items: center;
+          line-height: 10px;
+          border-radius: 4px;
+          font-size: 14px;
+          font-weight: 700;
+          padding: 5px;
+          flex: 0 0 100%;
+        }
+
+        .attribute-name.group-title {
+          margin: 0px 0px 1px 10px;
+        }
+
+        ul.attribute {
+          margin: 0px 5px 0px 0px;
+          justify-content: flex-end;
+
+          .pip-toggle {
+            margin-top: 2px;
+          }
+
+          label.pip-toggle.insight-pip-0::before,
+          label.pip-toggle.resolve-pip-0::before,
+          label.pip-toggle.prowess-pip-0::before {
+            line-height: 10px;
+            border: 2px solid $banner-text;
+            margin-top: 0px;
+          }
+
+          label.pip-toggle.insight-pip-0:hover::before,
+          label.pip-toggle.resolve-pip-0:hover::before,
+          label.pip-toggle.prowess-pip-0:hover::before {
+            border: 2px solid $pip-checked;
+          }
+        }
+
+        ul.actions-list {
+          flex: 0 0 100%;
+          margin-top: 5px;
+        }
+      }
+    }
+  }
+}

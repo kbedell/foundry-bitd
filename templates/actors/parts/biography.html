@@ -1,0 +1,27 @@
+<li class="vices vice">
+    <h4 class="status-name box-title">
+        {{ localize "BITD.Vice" }}
+    </h4>
+    <input class="vice-input" type="text" name="data.details.vice" value="{{data.details.vice}}"
+        placeholder="{{ localize 'BITD.Vice' }}" />
+</li>
+
+<li class="vices vice-purveyor">
+    <h4 class="status-name box-title">
+        {{ localize "BITD.VicePurveyor" }}
+    </h4>
+    <input class="vice-purveyor-input" type="text" name="data.details.vice-purveyor"
+        value="{{data.details.vice-purveyor}}" placeholder="{{ localize 'BITD.Vice' }}" />
+</li>
+
+<div class="form-group conditions">
+    <label for="data.conditions">{{localize "BITD.Conditions"}}</label>
+    <ul class="conditions-list">
+        {{#each data.conditions as |c cond|}}
+        {{#if c.value}}
+        <li class="tag {{cond}}">{{localize cond}}</li>
+        {{/if}}
+        {{/each}}
+    </ul>
+    <a class="condition-selector" data-options="conditions"><i class="fas fa-edit"></i></a>
+</div>

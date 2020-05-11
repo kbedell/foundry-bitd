@@ -3,12 +3,15 @@
  * Pre-loaded templates are compiled and cached for fast access when rendering
  * @return {Promise}
  */
-export const preloadHandlebarsTemplates = async function() {
+export const preloadHandlebarsTemplates = async function () {
 
-    // Define template paths to load
-    const templatePaths = [];
-  
-    // Load the template parts
-    return loadTemplates(templatePaths);
-  };
-  
+  // Define template paths to load
+  const templatePaths = [
+
+    // Actor Sheet Partials
+    "systems/bitd/templates/actors/parts/stress.html"
+  ];
+
+  // Load the template parts
+  return loadTemplates(templatePaths);
+};

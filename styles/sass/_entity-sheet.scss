@@ -1,0 +1,117 @@
+@use 'colors' as *;
+
+@import url("https://fonts.googleapis.com/css?family=Lato:200,300,400,400i,700");
+@import url("https://fonts.googleapis.com/css?family=Merriweather:200,400,400i,700");
+
+// _entity-sheet.scss
+
+/* ----------------------------------------- */
+/*  Entity Sheets                            */
+/* ----------------------------------------- */
+.bitd.sheet {
+  .window-header {
+    border-bottom: 1px solid $white;
+    color: $white;
+  }
+
+  .window-content {
+    background-color: $background;
+    color: $text;
+    font-family: "Lato", "sans-serif";
+  }
+
+  ul {
+    list-style: none;
+  }
+
+  .tag {
+    display: inline-block;
+    margin: 0 2px 0 0;
+    padding: 0 3px;
+    font-size: 10px;
+    line-height: 16px;
+    border: 1px solid #999;
+    border-radius: 3px;
+    background: rgba(0, 0, 0, 0.05);
+  }
+}
+
+/* ----------------------------------------- */
+/*  Navigation Styles                        */
+/* ----------------------------------------- */
+
+.bitd.sheet {
+  .sheet-navigation {
+    flex: 0 0 30px;
+    margin-bottom: 5px;
+    font-size: 20px;
+
+    .item {
+      font-size: 15px;
+      border-bottom: 3px solid $white;
+    }
+
+    .item.active {
+      font-size: 15px;
+      border-bottom: 3px solid $pip-checked;
+    }
+  }
+
+  .tabs .item.active {
+    color: $pip-checked;
+    text-shadow: none;
+  }
+
+  .tabs a.item:hover {
+    text-shadow: none;
+    color: $pip-checked;
+    border-bottom: 3px solid $pip-checked;
+  }
+}
+
+/* ----------------------------------------- */
+/*  Input Styles                             */
+/* ----------------------------------------- */
+
+.bitd {
+  input:disabled,
+  select:disabled,
+  textarea:disabled {
+    color: $text;
+  }
+
+  input:disabled:hover,
+  select:disabled:hover,
+  textarea:disabled:hover,
+  input:disabled:focus,
+  select:disabled:focus,
+  textarea:disabled:focus {
+    box-shadow: none !important;
+    border: 1px solid transparent !important;
+    outline: none !important;
+  }
+
+  .sheet {
+    input[type="text"] {
+      color: $text;
+      background: none;
+      border: 1px solid transparent;
+      border-bottom: 1px dashed $text;
+      border-radius: 0px;
+    }
+
+    input::placeholder {
+      color: $placeholder;
+      font-style: italic;
+    }
+
+    input[type="text"]:hover,
+    input[type="text"]:focus {
+      border: 1px solid $text;
+    }
+
+    input[type="text"] {
+      font-size: 15px;
+    }
+  }
+}

@@ -6,10 +6,8 @@
     "BITD.Background": "Background",
     "BITD.Stress": "Stress",
     "BITD.Trauma": "Trauma",
-    "BITD.Actions": "Actions",
-    "BITD.SpecialAbilities": "Abilities",
-    "BITD.Projects": "Projects",
-    "BITD.Biography": "Biography",
+    "BITD.Score": "Score",
+    "BITD.Downtime": "Downtime",
     "BITD.LoadOut": "Load",
     "BITD.Conditions": "Conditions",
     "BITD.Name": "Name",
@@ -51,5 +49,9 @@
     "BITD.Vice": "Vice",
     "BITD.VicePurveyor": "Vice Purveyor",
     "BITD.ConditionSelectorSpecial": "Replace Me",
-    "BITD.Save": "Save"
+    "BITD.Save": "Save",
+    "BITD.Playbook": "Playbook",
+    "BITD.IncreaseStress": "Increase\\Decrease Max Stress",
+    "BITD.CREW.UPGRADES.Hardened": "Hardened",
+    "BITD.CREW.UPGRADES.Steady": "Steady"
 }

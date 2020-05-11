@@ -1,31 +1,35 @@
 {
-    "name": "bitd",
-    "title": "Blades in the Dark",
-    "description": "A game system for running Blades in the Dark.",
-    "version": "0.0.13",
-    "minimumCoreVersion": "0.5.2",
-    "compatibleCoreVersion": "0.5.5",  
-    "templateVersion": 2,
-    "author": "Easternwind",
-    "scripts": [],
-    "esmodules": ["module/bitd.js"],
-    "styles": ["styles/bitd.css"],
-    "packs": [],
-    "languages": [
-      {
-        "lang": "en",
-        "name": "English",
-        "path": "lang/en.json"
-      }
-    ],
-    "socket": true,
-    "initiative": null,
-    "gridDistance": 5,
-    "gridUnits": "ft",
-    "primaryTokenAttribute": "status.stress",
-    "secondaryTokenAttribute": null,
-    "url": "https://github.com/kbedell/foundry-bitd",
-    "manifest": "https://raw.githubusercontent.com/kbedell/foundry-bitd/master/system.json",
-    "download": "https://github.com/kbedell/foundry-bitd/releases/download/0.0.13/BitD.zip",
-    "license": "LICENSE.txt"
-  }
+  "name": "bitd",
+  "title": "Blades in the Dark",
+  "description": "A game system for running Blades in the Dark.",
+  "version": "0.0.13",
+  "minimumCoreVersion": "0.5.2",
+  "compatibleCoreVersion": "0.5.5",
+  "templateVersion": 2,
+  "author": "Easternwind",
+  "scripts": [],
+  "esmodules": [
+    "module/bitd.js"
+  ],
+  "styles": [
+    "styles/css/styles.css"
+  ],
+  "packs": [],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    }
+  ],
+  "socket": true,
+  "initiative": null,
+  "gridDistance": 5,
+  "gridUnits": "ft",
+  "primaryTokenAttribute": "status.stress",
+  "secondaryTokenAttribute": null,
+  "url": "https://github.com/kbedell/foundry-bitd",
+  "manifest": "https://raw.githubusercontent.com/kbedell/foundry-bitd/master/system.json",
+  "download": "https://github.com/kbedell/foundry-bitd/releases/download/0.0.13/BitD.zip",
+  "license": "LICENSE.txt"
+}

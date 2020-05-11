@@ -9,7 +9,7 @@ export class ConditionSelector extends FormApplication {
         return mergeObject(super.defaultOptions, {
         id: "condition-selector",
         classes: ["bitd"],
-        title: "Actor Condition Selection",
+        title: "Character Condition Selection",
         template: "systems/bitd/templates/apps/condition-selector.html",
         width: 320,
         height: "auto",
@@ -51,7 +51,7 @@ export class ConditionSelector extends FormApplication {
       // Return data
         return {
         allowCustom: this.options.allowCustom,
-          choices: choices,
+        choices: choices,
         custom: attr ? attr.custom : ""
       }
     }
@@ -63,11 +63,13 @@ export class ConditionSelector extends FormApplication {
       const updateData = {};
   
       // Obtain choices
-      const chosen = [];
       for ( let [k, v] of Object.entries(formData) ) {
-        if ( (k !== "custom") && v ) chosen.push(k);
+        if ( (k !== "custom") && v ) {
+          updateData[`${this.attribute}.${k}.value`] = v;
+        } else {
+          updateData[`${this.attribute}.${k}.value`] = false;
+        }
       }
-      updateData[`${this.attribute}.value`] = chosen;
   
       // Update the object
       this.object.update(updateData);

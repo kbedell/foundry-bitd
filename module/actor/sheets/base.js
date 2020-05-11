@@ -1,5 +1,3 @@
-import { ConditionSelector } from "../../apps/condition-selector.js";
-
 /**
  * Extend the basic ActorSheet class to do all the BitD things!
  * This sheet is an Abstract layer which is not used.
@@ -17,7 +15,7 @@ export class ActorSheetBitD extends ActorSheet {
     this._filters = {
       specialabilities: new Set(),
       projects: new Set(),
-      biography: new Set()
+      biography: new Set(),
     };
   }
 
@@ -29,18 +27,22 @@ export class ActorSheetBitD extends ActorSheet {
       scrollY: [
         ".specialabilities .abilities-list",
         ".projects .abilities-list",
-        ".biography .abilities-list"
+        ".biography .abilities-list",
       ],
-      tabs: [{ navSelector: ".tabs", contentSelector: ".sheet-body", initial: "description" }]
+      tabs: [
+        {
+          navSelector: ".tabs",
+          contentSelector: ".sheet-body",
+          initial: "description",
+        },
+      ],
     });
   }
-
 
   /* -------------------------------------------- */
 
   /** @override */
   getData() {
-
     const sheetData = super.getData();
 
     // Basic data
@@ -71,15 +73,12 @@ export class ActorSheetBitD extends ActorSheet {
    * @param html {HTML}   The prepared HTML object ready to be rendered into the DOM
    */
   activateListeners(html) {
-
     // Editable Only Listeners
     if (this.isEditable) {
-
       // Relative updates for numeric fields
-      html.find('input[data-dtype="Number"]').change(this._onChangeInputDelta.bind(this));
-
-      // Trait Selector
-      html.find('.condition-selector').click(this._onConditionSelector.bind(this));
+      html
+        .find('input[data-dtype="Number"]')
+        .change(this._onChangeInputDelta.bind(this));
     }
 
     // Handle default listeners last so system listeners are triggered first
@@ -96,6 +95,8 @@ export class ActorSheetBitD extends ActorSheet {
     sheetBody.css("height", bodyHeight);
     return position;
   }
+
+  /* -------------------------------------------- */
 
   /* -------------------------------------------- */
   /*  Event Listeners and Handlers                */
@@ -115,19 +116,5 @@ export class ActorSheetBitD extends ActorSheet {
     } else if (value[0] === "=") {
       input.value = value.slice(1);
     }
-
-    this.actor.update({ [input.name]: value });
-  }
-
-  _onConditionSelector(event) {
-    event.preventDefault();
-    const a = event.currentTarget;
-    const label = a.parentElement.querySelector("label");
-    const options = {
-      name: label.getAttribute("for"),
-      title: label.innerText,
-      choices: CONFIG.BITD[a.dataset.options]
-    };
-    new ConditionSelector(this.actor, options).render(true)
   }
 }

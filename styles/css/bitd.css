@@ -1,71 +1,20 @@
 /* ----------------------------------------- */
 
+/*  Fonts                                    */
+
+/* ----------------------------------------- */
+
+@font-face {
+  font-family: "Typeka";
+  src: url("../fonts/Typeka.otf");
+}
+
+/* ----------------------------------------- */
+
 /*  Sheet Styles                             */
 
 /* ----------------------------------------- */
 
-.bitd.sheet {
-  color: #4b4a44;
-}
-
-/* ----------------------------------------- */
-
-/*  Flexbox                                  */
-
-/* ----------------------------------------- */
-
-.flexrow {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-}
-
-.flexrow>* {
-  flex: 1;
-}
-
-.flexrow .flex1 {
-  flex: 1;
-}
-
-.flexrow .flex2 {
-  flex: 2;
-}
-
-.flexrow .flex3 {
-  flex: 3;
-}
-
-.flexrow .flex4 {
-  flex: 4;
-}
-
-.flexcol {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-}
-
-.flexcol>* {
-  flex: 1;
-}
-
-.flexcol .flex1 {
-  flex: 1;
-}
-
-.flexcol .flex2 {
-  flex: 2;
-}
-
-.flexcol .flex3 {
-  flex: 3;
-}
-
-.flexcol .flex4 {
-  flex: 4;
-}
 
 /* ----------------------------------------- */
 
@@ -96,50 +45,61 @@
   flex: 2;
   font-weight: bold;
 }
+
 .bitd .form-group .form-fields {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: flex-start;
 }
-.bitd .form-group .form-fields > * {
+
+.bitd .form-group .form-fields>* {
   flex: 1;
 }
+
 .bitd .form-group .form-fields .flex1 {
   flex: 1;
 }
+
 .bitd .form-group .form-fields .flex2 {
   flex: 2;
 }
+
 .bitd .form-group .form-fields .flex3 {
   flex: 3;
 }
+
 .bitd .form-group .form-fields .flex4 {
   flex: 4;
 }
-.bitd .form-group .form-fields > * {
+
+.bitd .form-group .form-fields>* {
   margin: 0 3px 0 0;
 }
-.bitd .form-group .form-fields > *:last-child {
+
+.bitd .form-group .form-fields>*:last-child {
   margin-right: 0;
 }
+
 .bitd .form-group.stacked label {
   flex: 0 0 100%;
   margin: 0;
 }
+
 .bitd .form-group.stacked label.checkbox {
   flex: auto;
   text-align: left;
 }
+
 .bitd .form-header {
   margin: 0 0 0.25em 0;
   padding: 0 2px;
-  font-family: "Nodesto", "Signika", "Palatino Linotype", serif;
   font-size: 20px;
   font-size: 24px;
   border-top: 2px groove #eeede0;
   border-bottom: 2px groove #eeede0;
 }
+
 .bitd .tag {
   display: inline-block;
   margin: 0 2px 0 0;
@@ -157,17 +117,20 @@
 
 /* ----------------------------------------- */
 
+.bitd.sheet.actor form {
+  font-family: "Typeka", "Signika", "Palationo Linotype", serif;
+}
+
 .bitd.sheet .sheet-header img {
   margin: 0px;
 }
 
 .bitd.sheet img.profile {
-  flex: 0 0 150px;
-  max-width: 150px;
-  height: 150px;
+  flex: 0 0 120px;
+  max-width: 120px;
+  height: 120px;
   object-fit: cover;
-  border: none;
-  border-right: 2px groove #eeede0;
+  border: 10px solid #fff;
 }
 
 .bitd.sheet .sheet-body {
@@ -178,7 +141,7 @@
 .bitd.sheet .sheet-navigation {
   flex: 0 0 30px;
   margin-bottom: 5px;
-  font-family: "Nodesto", "Signika", "Palatino Linotype", serif;
+  font-family: "Typeka", "Signika", "Palationo Linotype", serif;
   font-size: 20px;
 }
 
@@ -194,7 +157,6 @@
 
 .bitd.sheet .sheet-header {
   flex: 0 0 100px;
-  border-bottom: 2px groove #eeede0;
   font-size: 15px;
   /* Character Name */
   /* Background */
@@ -206,16 +168,15 @@
   height: 25px;
   line-height: 25px;
   width: 96%;
+  border-bottom: 2px outset #000;
 }
 
-.bitd.sheet .background {
+.bitd.sheet.actor ul.background {
   flex: 0 0 100%;
   height: 40px;
-  margin: 0;
+  margin: 0px 0px 0px 10px;
   padding: 0;
   list-style: none;
-  border-top: 2px groove #eeede0;
-  border-bottom: 2px groove #eeede0;
 }
 
 .bitd.sheet .sheet-header .background li {
@@ -224,13 +185,8 @@
   height: 34px;
   margin: 2px 0;
   padding: 0 3px;
-  border-right: 2px groove #eeede0;
   line-height: 34px;
   color: #4b4a44;
-}
-
-.bitd.sheet .sheet-header .background li:last-child {
-  border-right: none;
 }
 
 .bitd.sheet.actor h4.box-title {
@@ -241,70 +197,12 @@
   text-align: center;
 }
 
-.bitd.sheet.actor ul.statuses {
+.bitd.sheet.actor ul {
   list-style: none;
-  margin: 0px;
+  margin: 0;
   padding: 0;
 }
 
-.bitd.sheet.actor ul.statuses li.status {
-  height: 70px;
-  margin: 0 5px;
-  border-radius: 4px;
-  font-size: 15px;
-  text-align: center;
-}
-
-.bitd.sheet.actor ul.statuses li.status .status-name {
-  flex: 0 0 18px;
-}
-
-.bitd.sheet.actor ul.statuses li.status .status-value {
-  height: 28px;
-  line-height: 28px;
-}
-
-.bitd.sheet.actor ul.statuses li.status .status-value input {
-  display: inline;
-  max-width: 40%;
-  margin: 0;
-  font-size: 15px;
-  height: 28px;
-}
-
-.bitd.sheet.actor ul.statuses li.status .status-value span.sep {
-  display: inline;
-  position: relative;
-  top: 2px;
-  font-size: 15px;
-  color: #7a7971;
-}
-
-.bitd.sheet.actor ul.statuses li.status .status-value.multiple input {
-  max-width: 33%;
-}
-
-.bitd.sheet.actor ul.statuses li.status.stress {
-  flex-grow: 1;
-  border-right: 2px groove #eeede0;
-}
-
-.bitd.sheet.actor ul.statuses li.status.trauma {
-  flex-grow: 1;
-  border-right: 2px groove #eeede0;
-}
-
-.bitd.sheet.actor ul.statuses li.vices {
-  flex-grow: 2;
-}
-
-.bitd.sheet.actor ul.statuses li.vices.vice {
-  border-right: 2px groove #eeede0;
-}
-
-.bitd.sheet.actor ul.statuses li.vices input {
-  text-align: center;
-}
 
 .bitd.sheet.actor ul.statuses li.status.conditions {
   flex-grow: 3;
@@ -338,7 +236,6 @@
 
 .bitd.sheet.actor .attribute-header {
   flex: 1 0 100%;
-  border-bottom: 2px groove #eeede0;
   height: 30px;
 }
 
@@ -376,10 +273,6 @@
   text-align: left;
 }
 
-.bitd.sheet.actor .action-score {
-  border-bottom: 2px groove #eeede0;
-}
-
 .bitd.sheet.actor ul.actions-list li:last-child {
   border-bottom: 0px;
 }
@@ -402,6 +295,153 @@
 
 /* ----------------------------------------- */
 
+.bitd.sheet.actor .header-flavor {
+  flex: 1 0 100%;
+  font-family: "Typeka", "Signika", "Palationo Linotype", serif;
+  font-size: 15px;
+  text-align: center;
+  display: inline-block;
+  margin-top: 5px;
+}
+
+.bitd.sheet.actor .header-staple {
+ background: url('../images/staple.png') no-repeat 0 0;
+ display: inline-block;
+ float: left;
+ min-height: 40px;
+ min-width: 40px;
+ height: 40px;
+ width: 40px;
+ vertical-align: middle; 
+ background-size: contain;
+}
+
+.bitd.sheet.actor .header-flavor-logo {
+  background: url('../images/doskvol-logo.png') no-repeat 0 0;
+  height: 50px;
+  width: 50px;
+  min-height: 50px;
+  min-width: 50px;
+  background-size: contain;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.bitd.sheet.actor .header-flavor-text {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.bitd.sheet.actor .header-flavor-main {
+  font-size: 18px;
+}
+
+.bitd.sheet.actor .background input.crew, 
+.bitd.sheet.actor .background input.heritage, 
+.bitd.sheet.actor .background input.race {
+  border-bottom: 2px outset #000;
+}
+
+.bitd.sheet.actor ul.statuses {
+  list-style: none;
+  margin: 0px 0px 0px 10px;
+  padding: 0;
+  flex: 1 0 100%;
+}
+
+.bitd.sheet.actor ul.statuses .status-name.box-title {
+  background-color: #000;
+  color: #fff;
+  padding: 5px;
+  transform: skew(-10deg);
+  height: 1.8em;
+}
+
+.bitd.sheet.actor .pip-container {
+  margin-left: -2px;
+
+}
+
+.bitd.sheet.actor ul.trauma.pips li.trauma.pip label.pip-container {
+  margin-left: -2px;
+}
+
+.bitd.sheet.actor ul.stress.pips {
+  flex-wrap: nowrap;
+}
+
+.bitd.sheet.actor ul.stress.pips li {
+  flex-shrink: 0;
+}
+
+.bitd.sheet.actor ul.statuses li.status {
+  flex: 0 0 50%;
+}
+
+.bitd.sheet.actor ul.statuses li.status.trauma {
+  flex: 0 0 28%;
+}
+
+.bitd.sheet.actor ul.stress li.stress.pip input {
+  display: none;
+}
+
+.bitd.sheet.actor ul.stress.pips li.stress .pip-container .pip-toggle {
+  border: 2px solid #000;
+  width: 1.5em;
+  height: 1.8em;
+  display: inline-block;
+  overflow: hidden;
+  transform: skew(-10deg);
+}
+
+.bitd.sheet.actor ul.stress.pips li.stress .pip-container input:checked ~ .pip-toggle {
+  background-color: #000;
+  border: 2px solid #fff;
+  width: 1.5em;
+  height: 1.8em;
+  display: inline-block;
+  overflow: hidden;
+  background-color: #000;
+  transform: skew(-10deg);
+}
+
+.bitd.sheet.actor ul.stress.pips li.stress .pip-container .pip-toggle:hover {
+  box-shadow: 0 0 5px red;
+}
+
+.bitd.sheet.actor ul.trauma li.trauma.pip input {
+  display: none;
+}
+
+.bitd.sheet.actor ul.trauma.pips li.trauma .pip-container .pip-toggle {
+  border: 2px solid #000;
+  width: 1.5em;
+  height: 1.8em;
+  display: inline-block;
+  overflow: hidden;
+  transform: skew(-10deg);
+}
+
+.bitd.sheet.actor ul.trauma.pips li.trauma .pip-container input:checked ~ .pip-toggle {
+  background-color: #000;
+  border: 2px solid #fff;
+  width: 1.5em;
+  height: 1.8em;
+  display: inline-block;
+  overflow: hidden;
+  background-color: #000;
+  transform: skew(-10deg);
+}
+
+.bitd.sheet.actor ul.trauma.pips li.trauma .pip-container .pip-toggle:hover {
+  box-shadow: 0 0 5px red;
+}
+
+.bitd.sheet.actor li.status.trauma {
+  margin-left: 100px;
+}
+
 .bitd.sheet.actor .form-group.conditons {
   border-bottom: 2px groove #eeede0;
 }
@@ -409,4 +449,8 @@
 .bitd.sheet.actor .form-group .condition-selector {
   text-align: right;
   margin-right: 10px;
+}
+
+.bitd.sheet.actor ul.conditions-list {
+  list-style: none;
 }
